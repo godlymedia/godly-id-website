@@ -13,7 +13,7 @@ service cloud.firestore {
     
     match /prayers/{prayerId} {
       allow read: if true;
-      allow create: if true; // Public can post prayers (add rate limiting in real app)
+      allow create: if true; // Public can post prayers
       allow update: if true; // Public can click "Amen" (increment count)
     }
 
