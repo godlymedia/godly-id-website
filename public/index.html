@@ -74,9 +74,16 @@
     </style>
   </head>
   <body class="font-sans antialiased">
-    <!-- Header & Navigation -->
         <!-- Header & Navigation -->
         <header class="bg-white shadow-md sticky top-0 z-50">
+      
+            <!-- This style block is the critical fix. It hides the dynamic links by default. -->
+            <style>
+              .auth-logout-btn, .auth-my-account-link, .auth-admin-link {
+                display: none;
+              }
+            </style>
+      
             <nav
               class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20"
             >
@@ -97,10 +104,13 @@
                 <div class="w-px h-6 bg-gray-200"></div>
       
                 <!-- DYNAMIC AUTH LINKS -->
+                <!-- These are now hidden by default with the style block above -->
                 <a href="my-account.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300 auth-my-account-link">My Account</a>
                 <a href="admin.html" class="font-medium text-red-600 hover:text-red-700 transition duration-300 auth-admin-link">Admin</a>
-                <a href="login.html" class="bg-brand-yellow text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-yellow-300 transition duration-300 auth-login-btn">Log In</a>
                 <button class="bg-gray-200 text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-gray-300 transition duration-300 auth-logout-btn">Log Out</button>
+      
+                <!-- The Login button remains visible by default for new visitors -->
+                <a href="login.html" class="bg-brand-yellow text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-yellow-300 transition duration-300 auth-login-btn">Log In</a>
               </div>
       
               <!-- Mobile Menu Button (Hamburger) -->
@@ -126,13 +136,13 @@
               <div class="border-t border-gray-200 pt-2 mt-2">
                   <a href="my-account.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark auth-my-account-link">My Account</a>
                   <a href="admin.html" class="block px-4 py-3 text-red-600 hover:bg-brand-yellow hover:text-brand-dark auth-admin-link">Admin</a>
-                  <a href="login.html" class="block px-4 py-3 text-center bg-brand-yellow text-brand-dark font-bold auth-login-btn">Log In</a>
                   <button class="block w-full text-left px-4 py-3 bg-gray-200 text-brand-dark font-bold auth-logout-btn">Log Out</button>
+                  <a href="login.html" class="block py-3 text-center bg-brand-yellow text-brand-dark font-bold auth-login-btn">Log In</a>
               </div>
             </div>
           </header>
+      
      
-
     <!-- Main Content -->
     <main>
       <!-- 1. Hero Section -->
