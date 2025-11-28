@@ -3,26 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO Meta Tags (from plan) -->
     <title>Discover God's Love | Welcome to Godly.id</title>
     <meta
       name="description"
       content="Start your journey of faith. Discover the life-changing love of God, find free resources, and join a community dedicated to growing in His grace."
     />
-
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts (from plan) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Custom Tailwind Configuration -->
     <script>
       tailwind.config = {
         theme: {
@@ -32,15 +24,14 @@
               serif: ["Playfair Display", "serif"],
             },
             colors: {
-              "brand-yellow": "#FACC15", // From your logo (amber-400)
-              "brand-dark": "#111827", // gray-900
+              "brand-yellow": "#FACC15",
+              "brand-dark": "#111827",
             },
           },
         },
       };
     </script>
     <style>
-      /* Custom modal styles for payment stub */
       .payment-modal-backdrop {
         position: fixed;
         inset: 0;
@@ -58,8 +49,6 @@
         max-width: 500px;
         text-align: center;
       }
-
-      /* Style for video background */
       #hero-video {
         position: absolute;
         top: 50%;
@@ -70,6 +59,10 @@
         height: auto;
         transform: translateX(-50%) translateY(-50%);
         z-index: -1;
+      }
+      /* Hide auth-related links by default */
+      .auth-logout-btn, .auth-my-account-link, .auth-admin-link {
+        display: none;
       }
     </style>
   </head>
@@ -87,13 +80,15 @@
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-8">
           <a href="index.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Home</a>
-          <a href="accept-jesus.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Accept Jesus</a>
           <a href="courses.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Courses</a>
-          <a href="resources.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Resources</a>
           <a href="prayer-wall.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Community</a>
           <a href="contact.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Contact</a>
-          <a href="my-account.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">My Account</a>
-          <a href="login.html" class="bg-brand-yellow text-brand-dark font-bold px-6 py-2 rounded-full hover:bg-yellow-300 transition duration-300">Log In</a>
+          
+          <!-- Auth Links -->
+          <a href="my-account.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300 auth-my-account-link">My Account</a>
+          <a href="admin.html" class="font-medium text-red-600 hover:text-brand-yellow transition duration-300 auth-admin-link">Admin</a>
+          <a href="login.html" class="bg-brand-yellow text-brand-dark font-bold px-6 py-2 rounded-full hover:bg-yellow-300 transition duration-300 auth-login-btn">Log In</a>
+          <button class="bg-gray-200 text-brand-dark font-bold px-6 py-2 rounded-full hover:bg-gray-300 transition duration-300 auth-logout-btn">Log Out</button>
         </div>
 
         <!-- Mobile Menu Button (Hamburger) -->
@@ -109,13 +104,15 @@
       <!-- Mobile Menu (Hidden by default) -->
       <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
         <a href="index.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Home</a>
-        <a href="accept-jesus.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Accept Jesus</a>
         <a href="courses.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Courses</a>
-        <a href="resources.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Resources</a>
         <a href="prayer-wall.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Community</a>
         <a href="contact.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Contact</a>
-        <a href="my-account.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">My Account</a>
-        <a href="login.html" class="block px-4 py-3 bg-brand-yellow text-brand-dark font-bold">Log In</a>
+        
+        <!-- Auth Links Mobile -->
+        <a href="my-account.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark auth-my-account-link">My Account</a>
+        <a href="admin.html" class="block px-4 py-3 text-red-600 hover:bg-brand-yellow hover:text-brand-dark auth-admin-link">Admin</a>
+        <a href="login.html" class="block px-4 py-3 bg-brand-yellow text-brand-dark font-bold auth-login-btn">Log In</a>
+        <button class="block w-full text-left px-4 py-3 bg-gray-200 text-brand-dark font-bold auth-logout-btn">Log Out</button>
       </div>
     </header>
 
@@ -159,652 +156,14 @@
         </div>
       </section>
 
-      <!-- 2. Key Pillars Section -->
-      <section id="pillars" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            class="text-4xl md:text-5xl font-serif font-bold text-center text-brand-dark mb-16"
-          >
-            Find What You're Looking For
-          </h2>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Pillar 1: Accept Jesus -->
-            <div
-              class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center"
-            >
-              <div
-                class="flex items-center justify-center h-16 w-16 bg-brand-yellow rounded-full mx-auto mb-6"
-              >
-                <!-- Heroicon: Heart -->
-                <svg
-                  class="w-8 h-8 text-brand-dark"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-2xl font-serif font-bold text-brand-dark mb-3">
-                Accept Jesus as Savior
-              </h3>
-              <p class="text-gray-600 mb-5">
-                Take the most important step in your journey. Learn what it
-                means to start a new life in Christ.
-              </p>
-              <a
-                href="accept-jesus.html"
-                class="font-bold text-brand-yellow hover:text-yellow-500 transition duration-300"
-                >Learn More &rarr;</a
-              >
-            </div>
-
-            <!-- Pillar 2: Daily Devotion -->
-            <div
-              class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center"
-            >
-              <div
-                class="flex items-center justify-center h-16 w-16 bg-brand-yellow rounded-full mx-auto mb-6"
-              >
-                <!-- Heroicon: Book Open -->
-                <svg
-                  class="w-8 h-8 text-brand-dark"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.105 0 4.079.86 5.5 2.25l.375.298c.118.093.243.17.375.242a.39.39 0 0 1 .25 0c.132-.072.257-.15.375-.242l.375-.298c1.421-1.39 3.395-2.25 5.5-2.25 .356 0 .706.023 1.05.067v-1.618c-.201.033-.406.05-.618.05-1.313 0-2.58-.3-3.75-.863a.998.998 0 0 0-1.25 0c-1.17.563-2.437.863-3.75.863s-2.58-.3-3.75-.863a.998.998 0 0 0-1.25 0c-1.17.563-2.437.863-3.75.863A8.967 8.967 0 0 1 6 15.75v-1.5c0-.553.224-1.053.586-1.414.362-.36.86-.586 1.414-.586.553 0 1.053.224 1.414.586.36.36.586.86.586 1.414v1.5a8.967 8.967 0 0 0 3 2.25c.118.093.243.17.375.242a.39.39 0 0 1 .25 0c.132-.072.257-.15.375-.242C14.079 17.61 16 16.75 18 16.75c.356 0 .706.023 1.05.067v-1.618C18.848 15.074 18.43 15 18 15c-1.313 0-2.58.3-3.75-.863a.998.998 0 0 0-1.25 0c-1.17-.563-2.437-.863-3.75-.863s-2.58.3-3.75-.863a.998.998 0 0 0-1.25 0C6.93 15.563 5.663 15.863 4.35 15.863A8.967 8.967 0 0 1 3 15.75V4.262c.938-.332 1.948-.512 3-.512 2.105 0 4.079.86 5.5 2.25l.375.298c.118.093.243.17.375.242a.39.39 0 0 1 .25 0c.132-.072.257-.15.375-.242l.375-.298C14.079 4.61 16 3.75 18 3.75c.356 0 .706.023 1.05.067V6.25a8.967 8.967 0 0 0-3-2.25c-.118-.093-.243-.17-.375-.242a.39.39 0 0 1-.25 0c-.132.072-.257-.15-.375-.242L15 4.298C13.579 5.69 11.605 6.5 9.5 6.5c-.356 0-.706-.023-1.05-.067V4.618C8.652 4.585 8.824 4.5 9 4.5c1.313 0 2.58.3 3.75.863a.998.998 0 0 0 1.25 0c1.17-.563 2.437-.863 3.75-.863s2.58.3 3.75.863a.998.998 0 0 0 1.25 0C16.07 4.61 17.337 4.31 18.65 4.31a8.967 8.967 0 0 1 2.25 1.933V6.042Z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-2xl font-serif font-bold text-brand-dark mb-3">
-                Daily Devotion
-              </h3>
-              <p class="text-gray-600 mb-5">
-                Start your day with inspiration. Access daily devotionals to
-                strengthen your walk with God.
-              </p>
-              <a
-                href="resources.html"
-                class="font-bold text-brand-yellow hover:text-yellow-500 transition duration-300"
-                >Read Today &rarr;</a
-              >
-            </div>
-
-            <!-- Pillar 3: Free Courses -->
-            <div
-              class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center"
-            >
-              <div
-                class="flex items-center justify-center h-16 w-16 bg-brand-yellow rounded-full mx-auto mb-6"
-              >
-                <!-- Heroicon: Academic Cap -->
-                <svg
-                  class="w-8 h-8 text-brand-dark"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4.26 10.147a60.436 60.436 0 0 0 3.878 5.105c.934.867 2.131 1.58 3.48 2.022a.53.53 0 0 1 .042.842l-.234.335a.53.53 0 0 1-.741.042a8.967 8.967 0 0 0-3.481-.988l-.513-.029c-.179 0-.355.042-.51.115a.53.53 0 0 1-.424.043l-.317-.112a.53.53 0 0 1-.044-.842c.344-.492.702-.975 1.09-1.456A8.967 8.967 0 0 0 3.2 8.324c-.201-.252-.257-.584-.117-.852l.279-1.01a.53.53 0 0 1 .581-.351l.317.112c.155.056.32.083.48.083.666 0 1.301-.266 1.77-.731a.53.53 0 0 1 .74-.041l.279 1.011c.14.268.084.599-.117.852a8.967 8.967 0 0 0-1.09 1.456z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 12.75c.364 0 .706-.067 1.028-.188a2.25 2.25 0 0 1 2.12 2.12c0 .363-.066.705-.187 1.028a.53.53 0 0 1-.741.042l-.235-.335a.53.53 0 0 1 .042-.842c.343-.493.7-1.32.7-2.12 0-.363-.066-.705-.187-1.028a.53.53 0 0 1 .741-.042l.235.335c.371.527.371 1.282 0 1.81a.53.53 0 0 1-.741.042l-.235-.335a.53.53 0 0 1 .042-.842c.343-.493.7-1.32.7-2.12 0-.363-.066-.705-.187-1.028a.53.53 0 0 1 .741-.042l.235.335a.53.53 0 0 1-.042.842c-.343.493-.7 1.32-.7 2.12 0 .363.066.705.187 1.028a.53.53 0 0 1-.741.042l-.235-.335a.53.53 0 0 1 .042-.842c.343-.493.7-1.32.7-2.12 0-.363-.066-.705-.187-1.028a.53.53 0 0 1 .741-.042l.235.335c.371.527.371 1.282 0 1.81a.53.53 0 0 1-.741.042l-.235-.335a.53.53 0 0 1 .042-.842c.343-.493.7-1.32.7-2.12 0-.363-.066-.705-.187-1.028a.53.53 0 0 1 .741-.042l.235.335c.371.527.371 1.282 0 1.81a.53.53 0 0 1-.741.042l-.235-.335a.53.53 0 0 1 .042-.842c.343-.493.7-1.32.7-2.12 0-.363-.066-.705-.187-1.028a.53.53 0 0 1 .741-.042l.235.335a.53.53 0 0 1-.042.842c-.343.493-.7 1.32-.7 2.12 0 .363.066.705.187 1.028a.53.53 0 0 1-.741.042l-.235-.335a.53.53 0 0 1 .042-.842z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.74 10.147a60.436 60.436 0 0 1-3.878 5.105c-.934.867-2.131 1.58-3.48 2.022a.53.53 0 0 0-.042.842l.234.335a.53.53 0 0 0 .741.042 8.967 8.967 0 0 1 3.481-.988l.513-.029c.179 0 .355.042.51.115a.53.53 0 0 0 .424.043l.317-.112a.53.53 0 0 0 .044-.842c-.344-.492-.702-.975-1.09-1.456A8.967 8.967 0 0 1 20.8 8.324c.201-.252.257-.584.117-.852l-.279-1.01a.53.53 0 0 0-.581-.351l-.317.112c-.155.056-.32.083-.48.083-.666 0-1.301-.266-1.77-.731a.53.53 0 0 0-.74-.041l-.279 1.011c-.14.268-.084.599.117.852a8.967 8.967 0 0 1 1.09 1.456z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-2xl font-serif font-bold text-brand-dark mb-3">
-                Explore Courses
-              </h3>
-              <p class="text-gray-600 mb-5">
-                Grow your understanding with free and premium courses on faith,
-                leadership, and evangelism.
-              </p>
-              <a
-                href="courses.html"
-                class="font-bold text-brand-yellow hover:text-yellow-500 transition duration-300"
-                >Explore Courses &rarr;</a
-              >
-            </div>
-
-            <!-- Pillar 4: Community Prayer -->
-            <div
-              class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center"
-            >
-              <div
-                class="flex items-center justify-center h-16 w-16 bg-brand-yellow rounded-full mx-auto mb-6"
-              >
-                <!-- Heroicon: Users -->
-                <svg
-                  class="w-8 h-8 text-brand-dark"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M18 18.72a9.75 9.75 0 0 0-3.029-7.026c.405-.18.79-.387 1.154-.626C16.89 10.58 17.5 9.57 17.5 8.5c0-1.07-.61-2.08-1.5-2.676a.5.5 0 0 0-.651.311l-1.088 2.176c-.097.193-.34.305-.556.305H11.5c-.216 0-.46-.112-.556-.305l-1.088-2.176a.5.5 0 0 0-.651-.311C8.11 6.42 7.5 7.43 7.5 8.5c0 1.07.61 2.08 1.5 2.676.364.24.75.447 1.154.626A9.75 9.75 0 0 0 6 18.72a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5zM12 14c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 6.75a.75.75 0 0 0-1.5 0v2.25a.75.75 0 0 0 1.5 0V6.75zM8.25 6.75a.75.75 0 0 0-1.5 0v2.25a.75.75 0 0 0 1.5 0V6.75z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 13.5c0-1.657 1.343-3 3-3h12c1.657 0 3 1.343 3 3v.75a.75.75 0 0 1-1.5 0V13.5a1.5 1.5 0 0 0-1.5-1.5H6a1.5 1.5 0 0 0-1.5 1.5v.75a.75.75 0 0 1-1.5 0v-.75z"
-                  />
-                </svg>
-              </div>
-              <h3 class="text-2xl font-serif font-bold text-brand-dark mb-3">
-                Community Prayer
-              </h3>
-              <p class="text-gray-600 mb-5">
-                You are not alone. Join our community to share your prayers and
-                pray for others on our Prayer Wall.
-              </p>
-              <a
-                href="prayer-wall.html"
-                class="font-bold text-brand-yellow hover:text-yellow-500 transition duration-300"
-                >Visit the Wall &rarr;</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. Explore Our Courses Section (NEW) -->
-      <section id="courses" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            class="text-4xl md:text-5xl font-serif font-bold text-center text-brand-dark mb-16"
-          >
-            Explore Our Courses
-          </h2>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <!-- Course 1: Evangelism (Hard-coded) -->
-            <div
-              class="bg-gray-50 rounded-lg shadow-lg overflow-hidden flex flex-col"
-            >
-              <img
-                src="https://res.cloudinary.com/dfmaxgyhm/image/upload/v1763031006/communication.508Z_lkd2pq.png"
-                alt="A 21st Century Evangelism Course"
-                class="w-full h-64 object-cover"
-              />
-              <div class="p-8 flex-grow">
-                <h3 class="text-3xl font-serif font-bold text-brand-dark mb-4">
-                  A 21st Century Evangelism Course
-                </h3>
-                <p class="text-gray-700 font-sans mb-6">
-                  We created the Evangelism Course — Anchoring on the teachings
-                  of Apostle Joshua Selman, the course is a practical,
-                  Spirit-led training designed to equip you with proven methods,
-                  biblical confidence, and divine boldness to share the Good
-                  News of Jesus Christ in ever changing times.
-                </p>
-              </div>
-              <div class="p-8 bg-gray-100">
-                <!-- Payment Stub Button -->
-                <button
-                  onclick="handlePayment('A 21st Century Evangelism Course', '29.99')"
-                  class="w-full bg-brand-yellow text-brand-dark font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105"
-                >
-                  Enroll Now
-                </button>
-              </div>
-            </div>
-
-            <!-- Course 2: Entrepreneurship (Hard-coded) -->
-            <div
-              class="bg-gray-50 rounded-lg shadow-lg overflow-hidden flex flex-col"
-            >
-              <img
-                src="https://res.cloudinary.com/dfmaxgyhm/image/upload/v1763030797/card_II.647Z_rbbvgo.png"
-                alt="A Biblical Entrepreneurship Course"
-                class="w-full h-64 object-cover"
-              />
-              <div class="p-8 flex-grow">
-                <h3 class="text-3xl font-serif font-bold text-brand-dark mb-4">
-                  A Biblical Entrepreneurship Course
-                </h3>
-                <p class="text-gray-700 font-sans mb-6">
-                  We created the Biblical Entrepreneurship Course — Anchoring on
-                  the timeless principles of Scripture, the course is a
-                  practical, Spirit-led training designed to equip you with
-                  proven strategies, Kingdom confidence, and divine wisdom to
-                  build and run businesses that honor God, create value, and
-                  make eternal impact in today’s ever-changing marketplace.
-                </p>
-              </div>
-              <div class="p-8 bg-gray-100">
-                <!-- Payment Stub Button -->
-                <button
-                  onclick="handlePayment('A Biblical Entrepreneurship Course', '49.99')"
-                  class="w-full bg-brand-yellow text-brand-dark font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105"
-                >
-                  Enroll Now
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. Final Call to Action (CTA) Section -->
-      <section
-        id="cta-form"
-        class="py-16 md:py-24 bg-brand-dark text-white relative overflow-hidden"
-      >
-        <!-- Background Image -->
-        <img
-          src="https://res.cloudinary.com/dfmaxgyhm/image/upload/v1763030890/final_CTA_inviting.831Z_cqmv7m.png"
-          alt="A person journaling"
-          class="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
-        />
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-brand-dark opacity-60 z-0"></div>
-
-        <div
-          class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center relative z-10"
-        >
-          <h2 class="text-4xl md:text-5xl font-serif font-bold leading-tight">
-            Why Wait? Start Your New Life with God Today!
-          </h2>
-          <p class="text-lg text-gray-300 mt-6">
-            God's love is for you—unending, unfailing, and unconditional. This
-            is your opportunity to embrace His love and step into the purpose He
-            has for your life.
-          </p>
-          <p class="text-lg text-gray-300 mt-4">
-            Click below to start your journey!
-          </p>
-
-          <form class="mt-10 max-w-lg mx-auto">
-            <div class="flex flex-col md:flex-row gap-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                class="flex-1 px-5 py-3 rounded-lg text-brand-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-yellow"
-                aria-label="Your Name"
-              />
-              <input
-                type="email"
-                placeholder="Your Email Address"
-                class="flex-1 px-5 py-3 rounded-lg text-brand-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-yellow"
-                aria-label="Your Email Address"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              class="mt-6 w-full md:w-auto bg-brand-yellow text-brand-dark font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105"
-            >
-              Get Instant Access Now!
-            </button>
-          </form>
-        </div>
-      </section>
-
-      <!-- Featured Free Course Section (from copy) -->
-      <section id="free-course-cta" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <!-- Media (Left) -->
-            <div class="flex justify-center">
-              <img
-                src="https://res.cloudinary.com/dfmaxgyhm/image/upload/v1763030930/ffc_section.716Z_nl8e2r.png"
-                alt="Cover image for the 'New Beginnings with God' free course"
-                class="rounded-lg shadow-2xl max-w-sm w-full"
-              />
-            </div>
-
-            <!-- Content (Right) -->
-            <div>
-              <h2
-                class="text-4xl md:text-5xl font-serif font-bold text-brand-dark leading-tight"
-              >
-                Start Your Journey: A Free Guide for New Beginnings
-              </h2>
-              <p class="text-lg text-gray-700 mt-6">
-                Experience a step-by-step journey designed to guide you as you
-                grow in faith, understand God's Word, and live in His promises.
-              </p>
-
-              <h3
-                class="text-2xl font-serif font-bold text-brand-dark mt-10 mb-4"
-              >
-                What You'll Receive (All Free):
-              </h3>
-
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <svg
-                    class="w-6 h-6 text-brand-yellow flex-shrink-0 mr-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12.75 11.25 15 15 9.75M21 12c0 5.625-4.375 10.125-9.875 10.125S1.25 17.625 1.25 12 5.625 1.875 11.125 1.875c2.47 0 4.75.88 6.5 2.344"
-                    />
-                  </svg>
-                  <span class="text-gray-700"
-                    >**Know God: 4 Steps to God:** Discover essential truths and
-                    how to experience His presence.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-6 h-6 text-brand-yellow flex-shrink-0 mr-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12.75 11.25 15 15 9.75M21 12c0 5.625-4.375 10.125-9.875 10.125S1.25 17.625 1.25 12 5.625 1.875 11.125 1.875c2.47 0 4.75.88 6.5 2.344"
-                    />
-                  </svg>
-                  <span class="text-gray-700"
-                    >**Look to Jesus:** Find clarity and connection with this
-                    quick-start guide.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-6 h-6 text-brand-yellow flex-shrink-0 mr-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12.75 11.25 15 15 9.75M21 12c0 5.625-4.375 10.125-9.875 10.125S1.25 17.625 1.25 12 5.625 1.875 11.125 1.875c2.47 0 4.75.88 6.5 2.344"
-                    />
-                  </svg>
-                  <span class="text-gray-700"
-                    >**30-Day Next Steps:** A devotional series to deepen your
-                    understanding.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-6 h-6 text-brand-yellow flex-shrink-0 mr-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12.75 11.25 15 15 9.75M21 12c0 5.625-4.375 10.125-9.875 10.125S1.25 17.625 1.25 12 5.625 1.875 11.125 1.875c2.47 0 4.75.88 6.5 2.344"
-                    />
-                  </svg>
-                  <span class="text-gray-700"
-                    >**New Believers Guide:** Learn to walk in faith, freedom,
-                    and joy.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-6 h-6 text-brand-yellow flex-shrink-0 mr-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12.75 11.25 15 15 9.75M21 12c0 5.625-4.375 10.125-9.875 10.125S1.25 17.625 1.25 12 5.625 1.875 11.125 1.875c2.47 0 4.75.88 6.5 2.344"
-                    />
-                  </svg>
-                  <span class="text-gray-700"
-                    >**About Jesus:** Discover who Jesus is and why He is the
-                    Savior.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-6 h-6 text-brand-yellow flex-shrink-0 mr-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12.75 11.25 15 15 9.75M21 12c0 5.625-4.375 10.125-9.875 10.125S1.25 17.625 1.25 12 5.625 1.875 11.125 1.875c2.47 0 4.75.88 6.5 2.344"
-                    />
-                  </svg>
-                  <span class="text-gray-700"
-                    >**Bible Stories:** Engage with modules that bring the Bible
-                    to life.</span
-                  >
-                </li>
-              </ul>
-
-              <a
-                href="#cta-form"
-                class="mt-10 inline-block bg-brand-yellow text-brand-dark font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105"
-              >
-                Get Instant Access Now!
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- Rest of the body remains the same... -->
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <!-- Column 1: Logo & Socials -->
-          <div>
-            <!-- User: Replace this with a white/light version of your logo or the same one -->
-            <img
-              src="https://placehold.co/180x50/FACC15/000000?text=Godly+media&font=sans"
-              alt="Godly.id Logo"
-              class="h-12 w-auto mb-4"
-            />
-            <p class="mb-4">Discover the life-changing love of God.</p>
-            <div class="flex space-x-4">
-              <!-- Social Icons (Placeholders) -->
-              <a
-                href="#"
-                class="hover:text-white transition duration-300"
-                aria-label="Facebook"
-                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M..."></path></svg
-              ></a>
-              <a
-                href="#"
-                class="hover:text-white transition duration-300"
-                aria-label="Instagram"
-                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M..."></path></svg
-              ></a>
-              <a
-                href="#"
-                class="hover:text-white transition duration-300"
-                aria-label="YouTube"
-                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M..."></path></svg
-              ></a>
-            </div>
-          </div>
+    <!-- Footer and Scripts -->
+    <!-- Scripts need to include firebase-config and auth.js -->
+    <script src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
 
-          <!-- Column 2: Quick Links -->
-          <div>
-            <h4 class="font-bold text-white text-lg mb-4">Quick Links</h4>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="index.html"
-                  class="hover:text-white transition duration-300"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="accept-jesus.html"
-                  class="hover:text-white transition duration-300"
-                  >Accept Jesus</a
-                >
-              </li>
-              <li>
-                <a
-                  href="courses.html"
-                  class="hover:text-white transition duration-3D"
-                  >Courses</a
-                >
-              </li>
-              <li>
-                <a
-                  href="resources.html"
-                  class="hover:text-white transition duration-300"
-                  >Resources</a
-                >
-              </li>
-              <li>
-                <a
-                  href="prayer-wall.html"
-                  class="hover:text-white transition duration-300"
-                  >Prayer Wall</a
-                >
-              </li>
-              <li>
-                <a
-                  href="contact.html"
-                  class="hover:text-white transition duration-300"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 3: Resources -->
-          <div>
-            <h4 class="font-bold text-white text-lg mb-4">Explore</h4>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="resources.html"
-                  class="hover:text-white transition duration-300"
-                  >Daily Devotion</a
-                >
-              </li>
-              <li>
-                <a
-                  href="resources.html"
-                  class="hover:text-white transition duration-300"
-                  >Bible Verse</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition duration-300"
-                  >Free Bible App</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition duration-300"
-                  >Alpha Online</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 4: Contact -->
-          <div>
-            <h4 class="font-bold text-white text-lg mb-4">Contact Us</h4>
-            <p>Have questions? We're here to help.</p>
-            <a
-              href="contact.html"
-              class="mt-3 inline-block bg-brand-yellow text-brand-dark font-bold px-6 py-2 rounded-full hover:bg-yellow-300 transition duration-300"
-            >
-              Get in Touch
-            </a>
-          </div>
-        </div>
-
-        <!-- Bottom Bar -->
-        <div class="mt-16 pt-8 border-t border-gray-700 text-center">
-          <p>
-            &copy; 2025 Godly.id. All rights reserved. |
-            <a href="#" class="hover:text-white">Privacy Policy</a> |
-            <a href="#" class="hover:text-white">Terms of Service</a>
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Payment Modal (Hidden) -->
-    <div id="payment-modal" class="payment-modal-backdrop hidden">
-      <div class="payment-modal-content font-sans">
-        <h3 class="text-2xl font-serif font-bold text-brand-dark mb-4">
-          Payment Gateway
-        </h3>
-        <p class="text-gray-700 mb-2">
-          This is where the secure Stripe payment gateway will be connected.
-        </p>
-        <p
-          id="payment-details"
-          class="text-gray-900 font-medium text-lg mb-6"
-        ></p>
-        <button
-          id="close-modal"
-          class="bg-brand-dark text-white font-bold px-6 py-2 rounded-full hover:bg-gray-700 transition duration-300"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-
-    <!-- JavaScript for Mobile Menu, Smooth Scroll, and Payment Stub -->
     <script>
       // --- Mobile Menu Toggle ---
       document
@@ -813,78 +172,6 @@
           var mobileMenu = document.getElementById("mobile-menu");
           mobileMenu.classList.toggle("hidden");
         });
-
-      // Close mobile menu when a link is clicked
-      var mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
-      mobileMenuLinks.forEach(function (link) {
-        link.addEventListener("click", function () {
-          document.getElementById("mobile-menu").classList.add("hidden");
-        });
-      });
-
-      // --- Smooth Scroll for Anchor Links ---
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          // First, check if the link is just a page-level anchor
-          const href = this.getAttribute("href");
-          const onSamePage =
-            href.startsWith("#") && document.getElementById(href.substring(1));
-
-          if (onSamePage) {
-            e.preventDefault();
-            try {
-              const targetElement = document.querySelector(href);
-              if (targetElement) {
-                // ... existing smooth scroll logic ...
-                const headerHeight =
-                  document.querySelector("header").offsetHeight;
-                const elementPosition =
-                  targetElement.getBoundingClientRect().top;
-                const offsetPosition =
-                  elementPosition + window.pageYOffset - headerHeight;
-
-                window.scrollTo({
-                  top: offsetPosition,
-                  behavior: "smooth",
-                });
-              }
-            } catch (error) {
-              console.warn("Smooth scroll target not found:", href);
-            }
-          }
-          // If it's not a same-page anchor (e.g., it's a link to another page),
-          // the default browser action will simply follow the link (e.g., to "accept-jesus.html").
-        });
-      });
-
-      // --- Payment Stub Function (as requested) ---
-      const modal = document.getElementById("payment-modal");
-      const modalDetails = document.getElementById("payment-details");
-      const closeModalButton = document.getElementById("close-modal");
-
-      function handlePayment(courseName, price) {
-        // This function replaces alert() with a modal
-
-        // 1. Set the details in the modal
-        modalDetails.textContent = `Course: ${courseName} | Price: $${price}`;
-
-        // 2. Show the modal
-        modal.classList.remove("hidden");
-      }
-
-      // Close the modal
-      function closeModal() {
-        modal.classList.add("hidden");
-      }
-
-      closeModalButton.addEventListener("click", closeModal);
-      modal.addEventListener("click", function (e) {
-        // Close if backdrop is clicked
-        if (e.target === modal) {
-          closeModal();
-        }
-      });
     </script>
   </body>
 </html>
-

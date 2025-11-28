@@ -22,26 +22,34 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     console.log("User is signed in:", user.uid);
-    updateUIForLogin(user);
     
-    // Check/Create User Profile in Firestore
+    // Check User Profile and Role in Firestore
     const userRef = doc(db, "users", user.uid);
     try {
         const userSnap = await getDoc(userRef);
-        
-        if (!userSnap.exists()) {
-        // Create new user profile if it doesn't exist
-        await setDoc(userRef, {
-            email: user.email,
-            displayName: user.displayName || user.email.split('@')[0],
-            createdAt: new Date(),
-            role: 'student', // Default role
-            courses: [] // To track enrolled courses
-        });
-        console.log("User profile created in Firestore");
+        let userRole = 'student'; // Default role
+
+        if (userSnap.exists()) {
+            userRole = userSnap.data().role || 'student'; // Get role, default to student
+        } else {
+            // Create new user profile if it doesn't exist
+            await setDoc(userRef, {
+                email: user.email,
+                displayName: user.displayName || user.email.split('@')[0],
+                createdAt: new Date(),
+                role: 'student', // Default role
+                courses: [] // To track enrolled courses
+            });
+            console.log("User profile created in Firestore");
         }
+        
+        // Update UI based on user and their role
+        updateUIForLogin(user, userRole);
+
     } catch (e) {
         console.error("Error checking user profile:", e);
+        // Still try to update UI, but without admin rights
+        updateUIForLogin(user, 'student');
     }
   } else {
     console.log("User is signed out");
@@ -50,15 +58,14 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 // --- UI Updates ---
-function updateUIForLogin(user) {
+function updateUIForLogin(user, role) {
   const loginBtns = document.querySelectorAll('.auth-login-btn');
-  const signupBtns = document.querySelectorAll('.auth-signup-btn');
   const logoutBtns = document.querySelectorAll('.auth-logout-btn');
   const myAccountLinks = document.querySelectorAll('.auth-my-account-link');
+  const adminLinks = document.querySelectorAll('.auth-admin-link'); // New
   const userNames = document.querySelectorAll('.auth-user-name');
 
   loginBtns.forEach(btn => btn.style.display = 'none');
-  signupBtns.forEach(btn => btn.style.display = 'none');
   
   logoutBtns.forEach(btn => {
     btn.style.display = 'inline-block'; // or block depending on layout
@@ -67,7 +74,15 @@ function updateUIForLogin(user) {
 
   myAccountLinks.forEach(link => {
     link.style.display = 'inline-block';
-    // link.href = 'my-account.html'; // Already set in HTML
+  });
+  
+  // Show admin link ONLY if user is an admin
+  adminLinks.forEach(link => {
+      if (role === 'admin') {
+          link.style.display = 'inline-block'; // or block
+      } else {
+          link.style.display = 'none';
+      }
   });
 
   userNames.forEach(span => {
@@ -77,15 +92,15 @@ function updateUIForLogin(user) {
 
 function updateUIForLogout() {
   const loginBtns = document.querySelectorAll('.auth-login-btn');
-  const signupBtns = document.querySelectorAll('.auth-signup-btn');
   const logoutBtns = document.querySelectorAll('.auth-logout-btn');
   const myAccountLinks = document.querySelectorAll('.auth-my-account-link');
+  const adminLinks = document.querySelectorAll('.auth-admin-link'); // New
   const userNames = document.querySelectorAll('.auth-user-name');
 
   loginBtns.forEach(btn => btn.style.display = 'inline-block');
-  signupBtns.forEach(btn => btn.style.display = 'inline-block');
   logoutBtns.forEach(btn => btn.style.display = 'none');
   myAccountLinks.forEach(link => link.style.display = 'none');
+  adminLinks.forEach(link => link.style.display = 'none'); // Hide on logout
   
   userNames.forEach(span => span.textContent = '');
 }
@@ -96,8 +111,6 @@ function updateUIForLogout() {
 async function signupUser(email, password, displayName) {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    // You might want to update the profile immediately
-    // await updateProfile(userCredential.user, { displayName: displayName });
     return userCredential.user;
   } catch (error) {
     console.error("Signup Error:", error);
@@ -148,7 +161,7 @@ async function logoutUser() {
   }
 }
 
-// Export functions to be used globally (e.g., by onclick handlers in HTML)
+// Export functions to be used globally
 window.authFn = {
   signupUser,
   loginUser,
