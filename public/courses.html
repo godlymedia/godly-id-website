@@ -4,17 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Courses | Grow Your Faith | Godly.id</title>
-    <meta
-      name="description"
-      content="Explore our collection of courses on faith, evangelism, and leadership. Deepen your understanding and grow in your walk with God."
-    />
+    <meta name="description" content="Explore our collection of courses on faith, evangelism, and leadership. Deepen your understanding and grow in your walk with God." />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
     <script>
       tailwind.config = {
         theme: {
@@ -50,60 +44,78 @@
         text-align: center;
       }
       /* Hide auth-related links by default */
-      .auth-logout-btn, .auth-my-account-link, .auth-admin-link {
+      .auth-login-btn, .auth-logout-btn, .auth-my-account-link, .auth-admin-link {
         display: none;
+      }
+       /* Simple line-clamp utility */
+      .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .line-clamp-3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
       }
     </style>
   </head>
   <body class="font-sans antialiased bg-gray-50 flex flex-col min-h-screen">
-    <!-- Header & Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-      <nav
-        class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20"
-      >
-        <!-- Logo -->
-        <a href="index.html" class="flex-shrink-0">
+    
+    <!-- Section 1: Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="flex-shrink-0">
           <img src="LOGO.jpg" alt="Godly.id Logo" class="h-12 w-auto" />
         </a>
-
+        
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Home</a>
-          <a href="courses.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Courses</a>
-          <a href="prayer-wall.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Community</a>
-          <a href="contact.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Contact</a>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="font-medium hover:text-brand-yellow transition-colors">Home</a>
+          <a href="accept-jesus.html" class="font-medium hover:text-brand-yellow transition-colors">Accept Jesus</a>
+          <a href="courses.html" class="font-medium hover:text-brand-yellow transition-colors">Courses</a>
+          <a href="resources.html" class="font-medium hover:text-brand-yellow transition-colors">Resources</a>
+          <a href="prayer-wall.html" class="font-medium hover:text-brand-yellow transition-colors">Community</a>
+          <a href="contact.html" class="font-medium hover:text-brand-yellow transition-colors">Contact</a>
           
-          <!-- Auth Links -->
-          <a href="my-account.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300 auth-my-account-link">My Account</a>
-          <a href="admin.html" class="font-medium text-red-600 hover:text-brand-yellow transition duration-300 auth-admin-link">Admin</a>
-          <a href="login.html" class="bg-brand-yellow text-brand-dark font-bold px-6 py-2 rounded-full hover:bg-yellow-300 transition duration-300 auth-login-btn">Log In</a>
-          <button class="bg-gray-200 text-brand-dark font-bold px-6 py-2 rounded-full hover:bg-gray-300 transition duration-300 auth-logout-btn">Log Out</button>
+          <div class="w-px h-6 bg-gray-200"></div>
+
+          <!-- Dynamic Auth Links -->
+          <a href="my-account.html" class="font-medium hover:text-brand-yellow transition-colors auth-my-account-link">My Account</a>
+          <a href="admin.html" class="font-medium text-red-600 hover:text-red-700 transition-colors auth-admin-link">Admin</a>
+          <a href="login.html" class="bg-brand-yellow text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-yellow-300 transition-colors auth-login-btn">Log In</a>
+          <button class="bg-gray-200 text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-gray-300 transition-colors auth-logout-btn">Log Out</button>
         </div>
 
-        <!-- Mobile Menu Button (Hamburger) -->
+        <!-- Mobile Menu Button -->
         <div class="md:hidden">
           <button id="menu-button" class="text-brand-dark focus:outline-none">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
           </button>
         </div>
       </nav>
 
-      <!-- Mobile Menu (Hidden by default) -->
+      <!-- Mobile Menu -->
       <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-        <a href="index.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Home</a>
-        <a href="courses.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Courses</a>
-        <a href="prayer-wall.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Community</a>
-        <a href="contact.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Contact</a>
-        
-        <!-- Auth Links Mobile -->
-        <a href="my-account.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark auth-my-account-link">My Account</a>
-        <a href="admin.html" class="block px-4 py-3 text-red-600 hover:bg-brand-yellow hover:text-brand-dark auth-admin-link">Admin</a>
-        <a href="login.html" class="block px-4 py-3 bg-brand-yellow text-brand-dark font-bold auth-login-btn">Log In</a>
-        <button class="block w-full text-left px-4 py-3 bg-gray-200 text-brand-dark font-bold auth-logout-btn">Log Out</button>
+        <nav class="flex flex-col space-y-1 px-4 py-3">
+          <a href="index.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-100">Home</a>
+          <a href="accept-jesus.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-100">Accept Jesus</a>
+          <a href="courses.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-100">Courses</a>
+          <a href="resources.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-100">Resources</a>
+          <a href="prayer-wall.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-100">Community</a>
+          <a href="contact.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-100">Contact</a>
+          <div class="border-t border-gray-200 pt-4 mt-2 space-y-2">
+            <a href="my-account.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-100 auth-my-account-link">My Account</a>
+            <a href="admin.html" class="block py-2 px-3 text-red-600 rounded-md hover:bg-yellow-100 auth-admin-link">Admin</a>
+            <a href="login.html" class="block py-2 text-center text-brand-dark bg-brand-yellow rounded-md font-bold auth-login-btn">Log In</a>
+            <button class="w-full text-left block py-2 px-3 bg-gray-200 text-brand-dark rounded-md font-bold auth-logout-btn">Log Out</button>
+          </div>
+        </nav>
       </div>
     </header>
+
     <!-- Main Content -->
     <main class="flex-grow">
       <!-- 1. Hero Section -->
@@ -143,23 +155,136 @@
         </div>
       </section>
     </main>
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-gray-400 mt-auto">
-        <!-- Footer content... -->
+        <!-- Footer content from index.html would go here to ensure consistency -->
     </footer>
+    
+    <!-- Payment Modal (Hidden) -->
+    <div id="payment-modal" class="payment-modal-backdrop hidden">
+      <div class="payment-modal-content font-sans">
+        <h3 class="text-2xl font-serif font-bold text-brand-dark mb-4">
+          Enrolling Course...
+        </h3>
+        <p class="text-gray-700 mb-2">
+            Simulating secure payment processing...
+        </p>
+        <p id="payment-details" class="text-gray-900 font-medium text-lg mb-6"></p>
+        <div class="flex justify-center">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-yellow"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script src="js/firebase-config.js"></script>
     <script type="module" src="js/auth.js"></script>
     <script type="module">
-        // Firebase and courses logic...
-    </script>
-    <script>
-      // --- Mobile Menu Toggle ---
-      document
-        .getElementById("menu-button")
-        .addEventListener("click", function () {
-          var mobileMenu = document.getElementById("mobile-menu");
-          mobileMenu.classList.toggle("hidden");
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+        import { getFirestore, collection, getDocs, orderBy, query, where, setDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+        const app = initializeApp(window.firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        const loadingDiv = document.getElementById('loading-courses');
+        const coursesGrid = document.getElementById('courses-grid');
+        const noCoursesDiv = document.getElementById('no-courses');
+
+        async function fetchCourses() {
+            try {
+                const coursesRef = collection(db, "courses");
+                // OPTIMIZED QUERY: Fetch only published courses, ordered by creation date
+                const q = query(coursesRef, where("published", "==", true), orderBy("createdAt", "desc"));
+                
+                const querySnapshot = await getDocs(q);
+                
+                if (querySnapshot.empty) {
+                    loadingDiv.classList.add('hidden');
+                    noCoursesDiv.classList.remove('hidden');
+                    return;
+                }
+
+                let coursesHTML = '';
+                querySnapshot.forEach((docSnap) => {
+                    const course = { id: docSnap.id, ...docSnap.data() };
+                    const courseId = course.id;
+
+                    const priceDisplay = course.price === 0 ? "FREE" : `$${course.price}`;
+                    const btnText = course.price === 0 ? "Start Learning" : "Enroll Now";
+                    const thumbnail = course.thumbnailUrl || 'https://placehold.co/600x400?text=No+Image';
+
+                    coursesHTML += `
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full transform transition hover:-translate-y-1 hover:shadow-2xl">
+                          <div class="relative">
+                            <img src="${thumbnail}" alt="${course.title}" class="w-full h-56 object-cover" />
+                            <span class="absolute top-4 right-4 bg-brand-yellow text-brand-dark font-bold px-3 py-1 rounded-full text-sm shadow">${course.category || 'General'}</span>
+                          </div>
+                          <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-serif font-bold text-brand-dark mb-3 line-clamp-2">${course.title}</h3>
+                            <p class="text-gray-600 font-sans mb-6 line-clamp-3 flex-grow">${course.description}</p>
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+                                <span class="text-xl font-bold text-brand-dark">${priceDisplay}</span>
+                                <button onclick="window.handleEnrollment('${courseId}', '${course.title.replace(/'/g, "\\'")}', '${course.price}')" class="bg-brand-dark text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-gray-800 transition duration-300">
+                                  ${btnText}
+                                </button>
+                            </div>
+                          </div>
+                        </div>
+                    `;
+                });
+
+                coursesGrid.innerHTML = coursesHTML;
+                loadingDiv.classList.add('hidden');
+                coursesGrid.classList.remove('hidden');
+
+            } catch (error) {
+                console.error("Error fetching courses:", error);
+                if (error.code === 'failed-precondition') {
+                     loadingDiv.innerHTML = \`<div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative max-w-lg mx-auto" role="alert"><strong class="font-bold">Database Index Required:</strong><span class="block sm:inline">${error.message}</span><p class="text-sm mt-2">Please go to the Firebase Console and create the required index for the 'courses' collection. A link is usually in the browser's developer console.</p></div>\`;
+                } else {
+                     loadingDiv.innerHTML = \`<div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative max-w-lg mx-auto" role="alert"><strong class="font-bold">Error loading courses:</strong><span class="block sm:inline">${error.message}</span></div>\`;
+                }
+            }
+        }
+
+        fetchCourses();
+
+        const modal = document.getElementById("payment-modal");
+        const modalDetails = document.getElementById("payment-details");
+
+        window.handleEnrollment = async function(courseId, courseTitle, price) {
+            const user = auth.currentUser;
+            if (!user) {
+                alert("Please log in to enroll in courses.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            modalDetails.textContent = \`Course: \${courseTitle} | Price: \${price}\`;
+            modal.classList.remove("hidden");
+
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate Payment
+                await setDoc(doc(db, "users", user.uid, "enrolledCourses", courseId), {
+                    courseId: courseId,
+                    courseTitle: courseTitle,
+                    enrolledAt: serverTimestamp(),
+                    progress: 0,
+                    completedLessons: []
+                });
+                window.location.href = "my-account.html";
+            } catch (error) {
+                console.error("Enrollment error:", error);
+                alert("Enrollment failed: " + error.message);
+                modal.classList.add("hidden");
+            }
+        }
+
+        document.getElementById("menu-button").addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
         });
     </script>
   </body>
