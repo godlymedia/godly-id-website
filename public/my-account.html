@@ -1,133 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account | Godly.id</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              serif: ["Playfair Display", "serif"],
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        serif: ["Playfair Display", "serif"],
+                    },
+                },
             },
-            colors: {
-              "brand-yellow": "#FACC15",
-              "brand-dark": "#111827",
-            },
-          },
-        },
-      };
+        };
     </script>
-    <style>
-      /* Hide auth-related links by default */
-      .auth-logout-btn, .auth-my-account-link, .auth-admin-link {
-        display: none;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-50 font-sans text-brand-dark flex flex-col min-h-screen">
-       
-    <!-- Header & Navigation -->
-        <header class="bg-white shadow-md sticky top-0 z-50">
-      
-          <!-- This style block is the critical fix. It hides the dynamic links by default. -->
-          <style>
-            .auth-logout-btn, .auth-my-account-link, .auth-admin-link {
-              display: none;
-            }
-          </style>
-    
-          <nav
-            class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20"
-          >
-            <!-- Logo -->
-            <a href="/" class="flex-shrink-0">
-              <img src="LOGO.jpg" alt="Godly.id Logo" class="h-12 w-auto" />
-            </a>
-    
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center space-x-6">
-              <a href="index.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Home</a>
-              <a href="accept-jesus.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Accept Jesus</a>
-              <a href="courses.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Courses</a>
-              <a href="resources.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Resources</a>
-              <a href="prayer-wall.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Community</a>
-              <a href="contact.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300">Contact</a>
-              
-              <div class="w-px h-6 bg-gray-200"></div>
-    
-              <!-- DYNAMIC AUTH LINKS -->
-              <!-- These are now hidden by default with the style block above -->
-              <a href="my-account.html" class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300 auth-my-account-link">My Account</a>
-              <a href="admin.html" class="font-medium text-red-600 hover:text-red-700 transition duration-300 auth-admin-link">Admin</a>
-              <button class="bg-gray-200 text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-gray-300 transition duration-300 auth-logout-btn">Log Out</button>
-    
-              <!-- The Login button remains visible by default for new visitors -->
-              <a href="login.html" class="bg-brand-yellow text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-yellow-300 transition duration-300 auth-login-btn">Log In</a>
-            </div>
-    
-            <!-- Mobile Menu Button (Hamburger) -->
-            <div class="md:hidden">
-              <button id="menu-button" class="text-brand-dark focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-              </button>
-            </div>
-          </nav>
-    
-          <!-- Mobile Menu (Hidden by default) -->
-          <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-            <a href="index.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Home</a>
-            <a href="accept-jesus.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Accept Jesus</a>
-            <a href="courses.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Courses</a>
-            <a href="resources.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Resources</a>
-            <a href="prayer-wall.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Community</a>
-            <a href="contact.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark">Contact</a>
-            
-            <!-- DYNAMIC AUTH LINKS (MOBILE) -->
-            <div class="border-t border-gray-200 pt-2 mt-2">
-                <a href="my-account.html" class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark auth-my-account-link">My Account</a>
-                <a href="admin.html" class="block px-4 py-3 text-red-600 hover:bg-brand-yellow hover:text-brand-dark auth-admin-link">Admin</a>
-                <button class="block w-full text-left px-4 py-3 bg-gray-200 text-brand-dark font-bold auth-logout-btn">Log Out</button>
-                <a href="login.html" class="block py-3 text-center bg-brand-yellow text-brand-dark font-bold auth-login-btn">Log In</a>
-            </div>
-          </div>
-        </header>
-   
+</head>
+<body class="bg-gray-50 font-sans">
 
-    <main class="container mx-auto px-4 py-10 max-w-5xl flex-grow">
-        <!-- Main content -->
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html">
+             <img src="LOGO.jpg" alt="Godly.id Logo" class="h-10 w-auto" />
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="font-medium hover:text-yellow-500">Home</a>
+          <a href="courses.html" class="font-medium hover:text-yellow-500">Courses</a>
+          <a href="my-account.html" class="font-medium text-yellow-500">My Account</a>
+          <a href="admin.html" class="auth-admin-link font-medium hover:text-yellow-500" style="display: none;">Admin</a>
+          <button class="auth-logout-btn bg-gray-200 px-4 py-2 rounded-lg">Log Out</button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto">
+            <h1 id="welcome-message" class="text-3xl font-bold font-serif text-gray-800 mb-8">My Account</h1>
+
+            <h2 class="text-2xl font-semibold text-gray-700 mb-6">My Enrolled Courses</h2>
+
+            <!-- Loading State -->
+            <div id="loading-state" class="text-center py-10">
+                <p class="text-gray-500">Loading your courses...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-10 bg-white rounded-lg shadow-sm border">
+                <p class="text-gray-600">You haven't enrolled in any courses yet.</p>
+                <a href="courses.html" class="mt-4 inline-block bg-yellow-500 text-white font-bold px-6 py-3 rounded-lg hover:bg-yellow-600">
+                    Explore Courses
+                </a>
+            </div>
+
+            <!-- Enrolled Courses Grid -->
+            <div id="enrolled-courses-container" class="hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dynamically populated courses will appear here -->
+            </div>
+        </div>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400 mt-auto">
-        <!-- Footer content -->
-    </footer>
-
-    <!-- Firebase SDKs & Logic -->
+    
+    <!-- Firebase -->
     <script src="js/firebase-config.js"></script>
     <script type="module" src="js/auth.js"></script>
-    <script type="module">
-        // Page specific logic...
-    </script>
-    <script>
-      // --- Mobile Menu Toggle ---
-      document
-        .getElementById("menu-button")
-        .addEventListener("click", function () {
-          var mobileMenu = document.getElementById("mobile-menu");
-          mobileMenu.classList.toggle("hidden");
-        });
-    </script>
-  </body>
+    <script type="module" src="js/my-account.js"></script>
+
+</body>
 </html>
