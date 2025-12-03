@@ -46,50 +46,6 @@
       body::-webkit-scrollbar-track { background: #f1f1f1; }
       body::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
       body::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-
-      /* Modal Styles */
-      .payment-modal-backdrop {
-        position: fixed;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-      }
-      .payment-modal-backdrop.active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .payment-modal-content {
-        background: white;
-        padding: 2rem;
-        border-radius: 1rem;
-        width: 90%;
-        max-width: 500px;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        transform: scale(0.95);
-        transition: transform 0.3s ease;
-      }
-      .payment-modal-backdrop.active .payment-modal-content {
-        transform: scale(1);
-      }
-
-      /* Mobile Menu Animation */
-      #mobile-menu {
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-      }
-      #mobile-menu.open {
-        max-height: 500px;
-        opacity: 1;
-      }
     </style>
 </head>
 <body class="font-sans antialiased text-brand-dark bg-gray-50 flex flex-col min-h-screen">
@@ -143,14 +99,11 @@
 
     <!-- Main Content -->
     <main class="flex-grow">
-      
-      <!-- 1. Hero Section -->
+      <!-- Hero Section -->
       <section class="relative bg-brand-dark text-white py-24 px-6 overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div class="absolute inset-0 bg-gradient-to-br from-brand-dark via-gray-900 to-black opacity-90"></div>
-        
         <div class="relative z-10 container mx-auto text-center max-w-4xl animate-fade-in-up">
-          <span class="inline-block py-1 px-3 rounded-full bg-brand-yellow/20 text-brand-yellow text-sm font-bold mb-6 border border-brand-yellow/30">PREMIUM & FREE CONTENT</span>
           <h1 class="text-4xl md:text-6xl font-serif font-bold leading-tight mb-6">
             Grow in Faith & Wisdom
           </h1>
@@ -160,30 +113,21 @@
         </div>
       </section>
 
-      <!-- 2. Courses Grid Section -->
+      <!-- Courses Grid Section -->
       <section id="courses-list-section" class="py-16 md:py-24 -mt-10">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          
-           <!-- Loading Indicator -->
+          <!-- Loading Indicator -->
           <div id="loading-courses" class="text-center py-20">
             <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-brand-yellow"></div>
             <p class="mt-4 text-gray-500 font-medium">Loading your courses...</p>
           </div>
-
           <!-- Courses Grid -->
-          <div id="courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto hidden">
-              <!-- Dynamic Content will be injected here -->
-          </div>
-
+          <div id="courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto hidden"></div>
           <!-- Empty State -->
-          <div id="no-courses" class="hidden text-center py-20 bg-white rounded-xl shadow-sm border border-gray-100 max-w-2xl mx-auto">
-              <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
+          <div id="no-courses" class="hidden text-center py-20 bg-white rounded-xl shadow-sm border">
               <h3 class="mt-2 text-lg font-medium text-gray-900">No courses available yet</h3>
               <p class="mt-1 text-sm text-gray-500">We are adding new content soon. Stay tuned!</p>
           </div>
-
         </div>
       </section>
     </main>
@@ -195,13 +139,6 @@
        </div>
     </footer>
     
-    <!-- Enrollment Modal -->
-    <div id="payment-modal" class="payment-modal-backdrop" aria-hidden="true">
-      <div class="payment-modal-content font-sans">
-         <!-- Modal content from previous version -->
-      </div>
-    </div>
-
     <!-- Scripts -->
     <script src="js/firebase-config.js"></script>
     <script type="module" src="js/auth.js"></script>
@@ -210,46 +147,111 @@
         import { getAuth } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
         import { getFirestore, collection, getDocs, orderBy, query, where, setDoc, doc, serverTimestamp, getDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 
-        // --- GLOBAL STATE ---
         let db;
         let auth;
         
-        // --- RENDER LOGIC ---
-        async function renderCourses(courses) {
-            // ... (previous renderCourses function)
+        const loadingDiv = document.getElementById('loading-courses');
+        const coursesGrid = document.getElementById('courses-grid');
+        const noCoursesDiv = document.getElementById('no-courses');
+
+        function renderCourses(courses) {
+            loadingDiv.classList.add('hidden');
+            if (!courses || courses.length === 0) {
+                noCoursesDiv.classList.remove('hidden');
+                return;
+            }
+
+            let coursesHTML = '';
+            courses.forEach((course) => {
+                const priceDisplay = course.price === 0 ? "FREE" : `$${course.price}`;
+                const btnText = course.price === 0 ? "Start Learning" : "Enroll Now";
+                const safeTitle = course.title.replace(/'/g, "\\'"); 
+
+                coursesHTML += `
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full">
+                      <img src="${course.thumbnailUrl}" alt="${course.title}" class="w-full h-56 object-cover" />
+                      <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-serif font-bold mb-3">${course.title}</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">${course.description}</p>
+                        <div class="flex items-center justify-between mt-auto pt-5 border-t">
+                            <span class="text-xl font-bold">${priceDisplay}</span>
+                            <button onclick="window.handleEnrollment('${course.id}', '${safeTitle}', ${course.price})" class="bg-brand-dark text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-brand-yellow hover:text-brand-dark">
+                              ${btnText}
+                            </button>
+                        </div>
+                      </div>
+                    </div>
+                `;
+            });
+
+            coursesGrid.innerHTML = coursesHTML;
+            coursesGrid.classList.remove('hidden');
         }
 
-        // --- DATA FETCHING ---
         async function fetchCourses() {
-           // ... (previous fetchCourses function)
+            try {
+                const coursesRef = collection(db, "courses");
+                const q = query(coursesRef, where("published", "==", true), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                
+                const courses = [];
+                querySnapshot.forEach((doc) => {
+                    courses.push({ id: doc.id, ...doc.data() });
+                });
+                renderCourses(courses);
+            } catch (error) {
+                console.error("Error fetching courses:", error);
+                renderCourses([]); 
+            }
         }
         
-        // --- INITIALIZATION ---
         function init() {
-            if (typeof window.firebaseConfig !== 'undefined') {
+            if (window.firebaseConfig) {
                 const app = initializeApp(window.firebaseConfig);
                 db = getFirestore(app);
                 auth = getAuth(app);
                 fetchCourses();
             } else {
-                console.error("No Firebase Config found.");
+                console.error("Firebase config not found.");
                 renderCourses([]);
             }
         }
 
         init();
 
-        // --- ENROLLMENT LOGIC ---
         window.handleEnrollment = async function(courseId, courseTitle, price) {
-            // ... (previous handleEnrollment function)
+            const user = auth.currentUser;
+            if (!user) {
+                alert("Please log in to enroll.");
+                return;
+            }
+            try {
+                const enrollmentRef = doc(db, "users", user.uid, "enrolledCourses", courseId);
+                const enrollmentSnap = await getDoc(enrollmentRef);
+                if (enrollmentSnap.exists()) {
+                    alert("You are already enrolled in this course!");
+                    window.location.href = `lms.html?courseId=${courseId}`;
+                    return;
+                }
+                await setDoc(enrollmentRef, {
+                    courseId: courseId,
+                    enrolledAt: serverTimestamp(),
+                    status: 'enrolled',
+                    progress: 0,
+                    courseTitle: courseTitle
+                });
+                alert(`Successfully enrolled in "${courseTitle}"!`);
+                window.location.href = `lms.html?courseId=${courseId}`;
+            } catch (error) {
+                console.error("Enrollment error:", error);
+                alert("Failed to enroll. Please try again.");
+            }
         };
         
-        // --- MOBILE MENU ---
         const menuBtn = document.getElementById("menu-button");
         const mobileMenu = document.getElementById("mobile-menu");
         menuBtn.addEventListener("click", () => {
             mobileMenu.classList.toggle("hidden");
-            mobileMenu.classList.toggle("open");
         });
     </script>
 </body>
