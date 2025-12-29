@@ -45,9 +45,49 @@
     </style>
   </head>
   <body class="font-sans antialiased">
-    <!-- Header & Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-      <!-- ... (header content remains the same) ... -->
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
+      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex-shrink-0">
+            <img src="LOGO.jpg" alt="Godly.id Logo" class="h-10 w-auto" />
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="font-medium hover:text-brand-yellow transition-colors">Home</a>
+          <a href="accept-jesus.html" class="font-medium text-brand-yellow transition-colors">Accept Jesus</a>
+          <a href="courses.html" class="font-medium hover:text-brand-yellow transition-colors">Courses</a>
+          <a href="resources.html" class="font-medium hover:text-brand-yellow transition-colors">Resources</a>
+          <a href="prayer-wall.html" class="font-medium hover:text-brand-yellow transition-colors">Community</a>
+          <a href="competition.html" class="font-medium hover:text-brand-yellow transition-colors">Competition</a>
+          <a href="contact.html" class="font-medium hover:text-brand-yellow transition-colors">Contact</a>
+          <div class="w-px h-6 bg-gray-200"></div>
+          <a href="login.html" class="auth-login-btn bg-brand-yellow text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-yellow-300 transition-colors shadow-sm">Log In</a>
+          <a href="my-account.html" class="auth-my-account-link font-medium hover:text-brand-yellow transition-colors" style="display: none;">My Account</a>
+          <a href="admin.html" class="auth-admin-link font-medium hover:text-brand-yellow transition-colors" style="display: none;">Admin Panel</a>
+          <button class="auth-logout-btn bg-gray-100 text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-gray-200" style="display: none;">Log Out</button>
+        </div>
+        <div class="md:hidden">
+          <button id="menu-button" class="text-brand-dark focus:outline-none p-2 rounded-md hover:bg-gray-100">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          </button>
+        </div>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-gray-100">
+        <nav class="flex flex-col space-y-1 px-4 py-3">
+          <a href="index.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Home</a>
+          <a href="accept-jesus.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Accept Jesus</a>
+          <a href="courses.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Courses</a>
+          <a href="resources.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Resources</a>
+          <a href="prayer-wall.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Community</a>
+          <a href="competition.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Competition</a>
+          <a href="contact.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Contact</a>
+          <div class="border-t border-gray-200 pt-4 mt-2 space-y-2">
+            <a href="login.html" class="auth-login-btn w-full block py-2 text-center text-brand-dark bg-brand-yellow rounded-md font-bold shadow-sm">Log In</a>
+            <a href="my-account.html" class="auth-my-account-link block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium" style="display: none;">My Account</a>
+            <a href="admin.html" class="auth-admin-link block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium" style="display: none;">Admin Panel</a>
+            <button class="auth-logout-btn w-full text-left block py-2 px-3 bg-gray-100 text-brand-dark rounded-md font-bold" style="display: none;">Log Out</button>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Main Content -->
@@ -68,7 +108,46 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-gray-400">
-        <!-- ... (footer content remains the same) ... -->
+      <div class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <img src="LOGO.jpg" alt="Godly.id Logo" class="h-12 w-auto mb-4" />
+            <p>Discover the life-changing love of God.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-lg mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="hover:text-white">Home</a></li>
+              <li><a href="accept-jesus.html" class="hover:text-white">Accept Jesus</a></li>
+              <li><a href="courses.html" class="hover:text-white">Courses</a></li>
+              <li><a href="course-sales.html" class="hover:text-white">Course Catalogue</a></li>
+              <li><a href="resources.html" class="hover:text-white">Resources</a></li>
+              <li><a href="prayer-wall.html" class="hover:text-white">Prayer Wall</a></li>
+              <li><a href="competition.html" class="hover:text-white">Competition</a></li>
+              <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-lg mb-4">Explore</h4>
+            <ul class="space-y-2">
+              <li><a href="resources.html" class="hover:text-white">Daily Devotion</a></li>
+              <li><a href="resources.html" class="hover:text-white">Bible Verse</a></li>
+              <li><a href="#" class="hover:text-white">Free Bible App</a></li>
+              <li><a href="#" class="hover:text-white">Alpha Online</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-lg mb-4">Contact Us</h4>
+            <p>Have questions? We're here to help.</p>
+            <a href="contact.html" class="mt-3 inline-block bg-brand-yellow text-brand-dark font-bold px-6 py-2 rounded-full hover:bg-yellow-300">
+              Get in Touch
+            </a>
+          </div>
+        </div>
+        <div class="mt-16 pt-8 border-t border-gray-700 text-center">
+          <p>&copy; 2025 Godly.id. All rights reserved. | <a href="#" class="hover:text-white">Privacy Policy</a> | <a href="#" class="hover:text-white">Terms of Service</a></p>
+        </div>
+      </div>
     </footer>
     
     <!-- MODAL for Commitment -->

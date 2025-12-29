@@ -41,103 +41,48 @@
     </script>
   </head>
   <body class="font-sans antialiased bg-gray-50 flex flex-col min-h-screen">
-    <!-- Header & Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-      <nav
-        class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20"
-      >
-        <!-- Logo -->
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
+      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href="index.html" class="flex-shrink-0">
-          <img src="LOGO.jpg" alt="Godly.id Logo" class="h-12 w-auto" />
+            <img src="LOGO.jpg" alt="Godly.id Logo" class="h-10 w-auto" />
         </a>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8">
-          <a
-            href="index.html"
-            class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300"
-            >Home</a
-          >
-          <a
-            href="accept-jesus.html"
-            class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300"
-            >Accept Jesus</a
-          >
-          <a
-            href="courses.html"
-            class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300"
-            >Courses</a
-          >
-          <a
-            href="resources.html"
-            class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300"
-            >Resources</a
-          >
-          <a
-            href="prayer-wall.html"
-            class="font-medium text-brand-yellow transition duration-300"
-            >Community</a
-          >
-          <a
-            href="contact.html"
-            class="font-medium text-brand-dark hover:text-brand-yellow transition duration-300"
-            >Contact</a
-          >
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="font-medium hover:text-brand-yellow transition-colors">Home</a>
+          <a href="accept-jesus.html" class="font-medium hover:text-brand-yellow transition-colors">Accept Jesus</a>
+          <a href="courses.html" class="font-medium hover:text-brand-yellow transition-colors">Courses</a>
+          <a href="resources.html" class="font-medium hover:text-brand-yellow transition-colors">Resources</a>
+          <a href="prayer-wall.html" class="font-medium text-brand-yellow transition-colors">Community</a>
+          <a href="competition.html" class="font-medium hover:text-brand-yellow transition-colors">Competition</a>
+          <a href="contact.html" class="font-medium hover:text-brand-yellow transition-colors">Contact</a>
+          <div class="w-px h-6 bg-gray-200"></div>
+          <a href="login.html" class="auth-login-btn bg-brand-yellow text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-yellow-300 transition-colors shadow-sm">Log In</a>
+          <a href="my-account.html" class="auth-my-account-link font-medium hover:text-brand-yellow transition-colors" style="display: none;">My Account</a>
+          <a href="admin.html" class="auth-admin-link font-medium hover:text-brand-yellow transition-colors" style="display: none;">Admin Panel</a>
+          <button class="auth-logout-btn bg-gray-100 text-brand-dark font-bold px-5 py-2 rounded-full hover:bg-gray-200" style="display: none;">Log Out</button>
         </div>
-
-        <!-- Mobile Menu Button (Hamburger) -->
         <div class="md:hidden">
-          <button id="menu-button" class="text-brand-dark focus:outline-none">
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
+          <button id="menu-button" class="text-brand-dark focus:outline-none p-2 rounded-md hover:bg-gray-100">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
           </button>
         </div>
       </nav>
-
-      <!-- Mobile Menu (Hidden by default) -->
-      <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-        <a
-          href="index.html"
-          class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark"
-          >Home</a
-        >
-        <a
-          href="accept-jesus.html"
-          class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark"
-          >Accept Jesus</a
-        >
-        <a
-          href="courses.html"
-          class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark"
-          >Courses</a
-        >
-        <a
-          href="resources.html"
-          class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark"
-          >Resources</a
-        >
-        <a
-          href="prayer-wall.html"
-          class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark"
-          >Community</a
-        >
-        <a
-          href="contact.html"
-          class="block px-4 py-3 text-brand-dark hover:bg-brand-yellow hover:text-brand-dark"
-          >Contact</a
-        >
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-gray-100">
+        <nav class="flex flex-col space-y-1 px-4 py-3">
+          <a href="index.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Home</a>
+          <a href="accept-jesus.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Accept Jesus</a>
+          <a href="courses.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Courses</a>
+          <a href="resources.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Resources</a>
+          <a href="prayer-wall.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Community</a>
+          <a href="competition.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Competition</a>
+          <a href="contact.html" class="block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium">Contact</a>
+          <div class="border-t border-gray-200 pt-4 mt-2 space-y-2">
+            <a href="login.html" class="auth-login-btn w-full block py-2 text-center text-brand-dark bg-brand-yellow rounded-md font-bold shadow-sm">Log In</a>
+            <a href="my-account.html" class="auth-my-account-link block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium" style="display: none;">My Account</a>
+            <a href="admin.html" class="auth-admin-link block py-2 px-3 text-brand-dark rounded-md hover:bg-yellow-50 font-medium" style="display: none;">Admin Panel</a>
+            <button class="auth-logout-btn w-full text-left block py-2 px-3 bg-gray-100 text-brand-dark rounded-md font-bold" style="display: none;">Log Out</button>
+          </div>
+        </nav>
       </div>
     </header>
 
@@ -322,8 +267,10 @@
               <li><a href="index.html" class="hover:text-white transition duration-300">Home</a></li>
               <li><a href="accept-jesus.html" class="hover:text-white transition duration-300">Accept Jesus</a></li>
               <li><a href="courses.html" class="hover:text-white transition duration-300">Courses</a></li>
+              <li><a href="course-sales.html" class="hover:text-white">Course Catalogue</a></li>
               <li><a href="resources.html" class="hover:text-white transition duration-300">Resources</a></li>
               <li><a href="prayer-wall.html" class="hover:text-white transition duration-300">Prayer Wall</a></li>
+              <li><a href="competition.html" class="hover:text-white transition duration-300">Competition</a></li>
               <li><a href="contact.html" class="hover:text-white transition duration-300">Contact</a></li>
             </ul>
           </div>

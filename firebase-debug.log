@@ -1,0 +1,71 @@
+[debug] [2025-12-29T00:14:45.953Z] ----------------------------------------------------------------------
+[debug] [2025-12-29T00:14:45.956Z] Command:       /nix/store/ws50yvm6vzlzf7jzz6n7xh4szddrack1-nodejs-20.19.1/bin/node /nix/store/c776mhyhgykcld7p90ajrka149ifn61a-firebase-tools-14.26.0/lib/node_modules/firebase-tools/lib/bin/firebase.js emulators:start --only hosting
+[debug] [2025-12-29T00:14:45.957Z] CLI Version:   14.26.0
+[debug] [2025-12-29T00:14:45.957Z] Platform:      linux
+[debug] [2025-12-29T00:14:45.957Z] Node Version:  v20.19.1
+[debug] [2025-12-29T00:14:45.957Z] Time:          Mon Dec 29 2025 00:14:45 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-12-29T00:14:45.957Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-12-29T00:14:46.568Z] Checked if tokens are valid: false, expires at: 1766966811733
+[debug] [2025-12-29T00:14:46.568Z] Checked if tokens are valid: false, expires at: 1766966811733
+[debug] [2025-12-29T00:14:46.569Z] > refreshing access token with scopes: []
+[debug] [2025-12-29T00:14:46.572Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-29T00:14:46.572Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-29T00:14:46.645Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-29T00:14:46.645Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-29T00:14:46.659Z] >>> [apiv2][query] GET https://monospace-pa.googleapis.com/v1/workspaces/godly-id-websitegit-46160735 [none]
+[debug] [2025-12-29T00:14:47.512Z] <<< [apiv2][status] GET https://monospace-pa.googleapis.com/v1/workspaces/godly-id-websitegit-46160735 200
+[debug] [2025-12-29T00:14:47.512Z] <<< [apiv2][body] GET https://monospace-pa.googleapis.com/v1/workspaces/godly-id-websitegit-46160735 {"workspaceId":"godly-id-websitegit-46160735","name":"godly-id-website.git","workspaceRedirectUrl":"firebase-godly-id-websitegit-1764018582878.cluster-lu4mup47g5gm4rtyvhzpwbfadi.cloudworkstations.dev","status":"WORKSPACE_STATUS_RUNNING","lastAccessDatetime":"2025-12-28T22:55:30.939323Z","workspaceTemplate":"WORKSPACE_TEMPLATE_BLANK_WEB","owner":"SELF","serviceAccountEmail":"msp-4067365601434223884@monospace-per-ws-sa-8.iam.gserviceaccount.com","gitRepoUrl":"https://github.com/ChidiebereJohn-ng/godly-id-website.git","enableNix":true,"ownerEmail":"chidieberejohnchukwuemeka@gmail.com","workstationAccessToken":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Nsb3VkLmdvb2dsZS5jb20vd29ya3N0YXRpb25zIiwiYXVkIjoiZmlyZWJhc2UtZ29kbHktaWQtd2Vic2l0ZWdpdC0xNzY0MDE4NTgyODc4LmNsdXN0ZXItbHU0bXVwNDdnNWdtNHJ0eXZoenB3YmZhZGkuY2xvdWR3b3Jrc3RhdGlvbnMuZGV2IiwiaWF0IjoxNzY2OTY3Mjg3LCJleHAiOjE3NjcwNTM2ODd9.kFIMSWHeyMUfpc9ZOFgjeROnbNQozqioeGlgZjtQSZZHjn9edutd49mWkuK2X3787fUuFNVv5JtV6xWElkOxX4n3omDsnFN4ioxHmamvAFVLJ5ICJYG0Q6yRdFY7XRhUOqoKuILb5YFe7UOpkqWhQNuJMKebQXTatOuiHDBiE6Kwc1j9c95KLIQJFnSvN9-VbzqfyoS-5NbSVjZiQT7U4QjbFVgMzkVxSiSnrhoS_Ll9B5vK_P4MYzYqXnAnP8mhTu8pxtgjNdTMmP09wQ4e1tC7FwvBry6rlLZIGIIcMoRI7fUMYvAAquz1jfKuoUmyQdJCQ3U_TjXAPSDi2qs3rg","firebaseProjectId":"godly-backend"}
+[debug] [2025-12-29T00:14:47.517Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-12-29T00:14:47.517Z] > authorizing via signed-in user (chidieberejohnchukwuemeka@gmail.com)
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[warn] ⚠  hub: Error when trying to check port 4400 on ::1: Error: listen EADDRNOTAVAIL: address not available ::1:4400 {"metadata":{"emulator":{"name":"hub"},"message":"Error when trying to check port 4400 on ::1: Error: listen EADDRNOTAVAIL: address not available ::1:4400"}}
+[warn] ⚠  hub: Port 4400 is available on 127.0.0.1 but not ::1. This may cause issues with some clients. {"metadata":{"emulator":{"name":"hub"},"message":"Port 4400 is available on 127.0.0.1 but not ::1. This may cause issues with some clients."}}
+[warn] ⚠  hub: If you encounter connectivity issues, consider switching to a different port or explicitly specifying "host": "<ip address>" instead of hostname in firebase.json {"metadata":{"emulator":{"name":"hub"},"message":"If you encounter connectivity issues, consider switching to a different port or explicitly specifying \"host\": \"<ip address>\" instead of hostname in firebase.json"}}
+[warn] ⚠  logging: Error when trying to check port 4500 on ::1: Error: listen EADDRNOTAVAIL: address not available ::1:4500 {"metadata":{"emulator":{"name":"logging"},"message":"Error when trying to check port 4500 on ::1: Error: listen EADDRNOTAVAIL: address not available ::1:4500"}}
+[warn] ⚠  logging: Port 4500 is available on 127.0.0.1 but not ::1. This may cause issues with some clients. {"metadata":{"emulator":{"name":"logging"},"message":"Port 4500 is available on 127.0.0.1 but not ::1. This may cause issues with some clients."}}
+[warn] ⚠  logging: If you encounter connectivity issues, consider switching to a different port or explicitly specifying "host": "<ip address>" instead of hostname in firebase.json {"metadata":{"emulator":{"name":"logging"},"message":"If you encounter connectivity issues, consider switching to a different port or explicitly specifying \"host\": \"<ip address>\" instead of hostname in firebase.json"}}
+[warn] ⚠  hosting: Error when trying to check port 5000 on ::1: Error: listen EADDRNOTAVAIL: address not available ::1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Error when trying to check port 5000 on ::1: Error: listen EADDRNOTAVAIL: address not available ::1:5000"}}
+[warn] ⚠  hosting: Port 5000 is available on 127.0.0.1 but not ::1. This may cause issues with some clients. {"metadata":{"emulator":{"name":"hosting"},"message":"Port 5000 is available on 127.0.0.1 but not ::1. This may cause issues with some clients."}}
+[warn] ⚠  hosting: If you encounter connectivity issues, consider switching to a different port or explicitly specifying "host": "<ip address>" instead of hostname in firebase.json {"metadata":{"emulator":{"name":"hosting"},"message":"If you encounter connectivity issues, consider switching to a different port or explicitly specifying \"host\": \"<ip address>\" instead of hostname in firebase.json"}}
+[debug] [2025-12-29T00:14:47.531Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-12-29T00:14:47.539Z] Emulator locator file path: /tmp/hub-godly-backend.json
+[debug] [2025-12-29T00:14:47.540Z] [hub] writing locator at /tmp/hub-godly-backend.json
+[debug] [2025-12-29T00:14:47.558Z] Checked if tokens are valid: true, expires at: 1766970885646
+[debug] [2025-12-29T00:14:47.558Z] Checked if tokens are valid: true, expires at: 1766970885646
+[debug] [2025-12-29T00:14:47.559Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/godly-backend/sites 
+[debug] [2025-12-29T00:14:48.409Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/godly-backend/sites 200
+[debug] [2025-12-29T00:14:48.411Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/godly-backend/sites {"sites":[{"name":"projects/godly-backend/sites/godly-backend","defaultUrl":"https://godly-backend.web.app","appId":"1:64767835188:web:62cb15f13188a30b9f1e61","type":"DEFAULT_SITE"}]}
+[debug] [2025-12-29T00:14:48.411Z] Checked if tokens are valid: true, expires at: 1766970885646
+[debug] [2025-12-29T00:14:48.412Z] Checked if tokens are valid: true, expires at: 1766970885646
+[debug] [2025-12-29T00:14:48.412Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/godly-backend/webApps/1:64767835188:web:62cb15f13188a30b9f1e61/config [none]
+[debug] [2025-12-29T00:14:49.085Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/godly-backend/webApps/1:64767835188:web:62cb15f13188a30b9f1e61/config 200
+[debug] [2025-12-29T00:14:49.085Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/godly-backend/webApps/1:64767835188:web:62cb15f13188a30b9f1e61/config {"projectId":"godly-backend","appId":"1:64767835188:web:62cb15f13188a30b9f1e61","storageBucket":"godly-backend.firebasestorage.app","apiKey":"AIzaSyA4yrQRjIT16GocdOTtf1H3cOlZGN7Ty0c","authDomain":"godly-backend.firebaseapp.com","messagingSenderId":"64767835188","measurementId":"G-L3BKL6FYDV","projectNumber":"64767835188","version":"2"}
+[debug] [2025-12-29T00:14:49.093Z] Checked if tokens are valid: true, expires at: 1766970885646
+[debug] [2025-12-29T00:14:49.094Z] Checked if tokens are valid: true, expires at: 1766970885646
+[debug] [2025-12-29T00:14:49.094Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/godly-backend [none]
+[debug] [2025-12-29T00:14:49.296Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/godly-backend 200
+[debug] [2025-12-29T00:14:49.297Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/godly-backend {"projectId":"godly-backend","projectNumber":"64767835188","displayName":"godly-Backend","name":"projects/godly-backend","resources":{"hostingSite":"godly-backend"},"state":"ACTIVE","etag":"1_4d96f7d0-6a42-4de9-aa14-7569755b0d1c"}
+[info] i  hosting[godly-backend]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: public"}}
+[info] ✔  hosting[godly-backend]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: http://127.0.0.1:5000"}}
+[warn] ⚠  emulators: The Emulator UI is not starting because none of the running emulators have a UI component. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI is not starting because none of the running emulators have a UI component."}}
+[debug] [2025-12-29T00:14:49.335Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: connect ECONNREFUSED 127.0.0.1:40001. If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ 127.0.0.1:5000 │
+└──────────┴────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [29/Dec/2025:00:15:06 +0000] "GET /course-sales.html HTTP/1.1" 200 - "https://firebase-godly-id-websitegit-1764018582878.cluster-lu4mup47g5gm4rtyvhzpwbfadi.cloudworkstations.dev/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/Dec/2025:00:15:06 +0000] \"GET /course-sales.html HTTP/1.1\" 200 - \"https://firebase-godly-id-websitegit-1764018582878.cluster-lu4mup47g5gm4rtyvhzpwbfadi.cloudworkstations.dev/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/Dec/2025:00:18:53 +0000] "GET /course-sales.html HTTP/1.1" 200 - "https://firebase-godly-id-websitegit-1764018582878.cluster-lu4mup47g5gm4rtyvhzpwbfadi.cloudworkstations.dev/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/Dec/2025:00:18:53 +0000] \"GET /course-sales.html HTTP/1.1\" 200 - \"https://firebase-godly-id-websitegit-1764018582878.cluster-lu4mup47g5gm4rtyvhzpwbfadi.cloudworkstations.dev/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/Dec/2025:00:21:36 +0000] "GET /course-sales.html HTTP/1.1" 200 - "https://firebase-godly-id-websitegit-1764018582878.cluster-lu4mup47g5gm4rtyvhzpwbfadi.cloudworkstations.dev/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/Dec/2025:00:21:36 +0000] \"GET /course-sales.html HTTP/1.1\" 200 - \"https://firebase-godly-id-websitegit-1764018582878.cluster-lu4mup47g5gm4rtyvhzpwbfadi.cloudworkstations.dev/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [29/Dec/2025:00:22:02 +0000] "GET /course-sales.html HTTP/1.1" 200 - "https://firebase-godly-id-websitegit-1764018582878.cluster-lu4mup47g5gm4rtyvhzpwbfadi.cloudworkstations.dev/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [29/Dec/2025:00:22:02 +0000] \"GET /course-sales.html HTTP/1.1\" 200 - \"https://firebase-godly-id-websitegit-1764018582878.cluster-lu4mup47g5gm4rtyvhzpwbfadi.cloudworkstations.dev/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36\""}}

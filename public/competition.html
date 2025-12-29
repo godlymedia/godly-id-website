@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Evangelism & Transformation Competition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy: #111827; /* Dark text color */
+            --brand-slate: #475569; /* Body text color */
+            --brand-light-slate: #64748b;
+            --brand-white: #FFFFFF;
+            --brand-yellow: #FFD100;
+            --brand-light-yellow: #FEF9C3;
+        }
+        body {
+            background-color: var(--brand-white);
+            color: var(--brand-slate);
+            font-family: 'Inter', sans-serif;
+        }
+        .card {
+            background-color: var(--brand-white);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+        }
+        .btn-cta {
+            background-color: var(--brand-yellow);
+            color: var(--brand-navy);
+            font-weight: 700;
+            padding: 0.8rem 2.5rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 209, 0, 0.2);
+        }
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 209, 0, 0.4);
+        }
+        .section-heading {
+            color: var(--brand-navy);
+            position: relative;
+            display: inline-block;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--brand-yellow);
+            border-radius: 2px;
+        }
+        .bento-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(1, 1fr);
+        }
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto;
+            }
+            .bento-grid .grid-item-1 { grid-column: span 2 / span 2; }
+            .bento-grid .grid-item-4 { grid-column: span 3 / span 3; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50 border-b border-gray-200/80">
+      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html">
+          <img src="https://res.cloudinary.com/dn2mgiges/image/upload/v1766959192/logo_eylxks.jpg" alt="Godly.id Logo" class="h-10 w-auto" />
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="text-brand-slate hover:text-brand-yellow transition-colors">Home</a>
+          <a href="competition.html" class="text-brand-yellow font-bold">Competition</a>
+          <a href="courses.html" class="text-brand-slate hover:text-brand-yellow transition-colors">Courses</a>
+          <a href="prayer-wall.html" class="text-brand-slate hover:text-brand-yellow transition-colors">Community</a>
+        </div>
+        <a href="https://forms.gle/WE4avdP6BShggq4JA" class="hidden md:inline-block btn-cta !py-2 !px-6">Apply Now</a>
+        <button id="mobile-menu-button" class="md:hidden text-brand-navy hover:text-brand-yellow">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden">
+        <a href="index.html" class="block py-3 px-6 text-brand-slate hover:bg-yellow-50 hover:text-brand-yellow">Home</a>
+        <a href="competition.html" class="block py-3 px-6 text-brand-yellow bg-yellow-50 font-bold">Competition</a>
+        <a href="courses.html" class="block py-3 px-6 text-brand-slate hover:bg-yellow-50 hover:text-brand-yellow">Courses</a>
+        <a href="prayer-wall.html" class="block py-3 px-6 text-brand-slate hover:bg-yellow-50 hover:text-brand-yellow">Community</a>
+        <div class="p-4"><a href="https://forms.gle/WE4avdP6BShggq4JA" class="w-full text-center block btn-cta">Apply Now</a></div>
+      </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative text-center py-20 md:py-32 px-6 bg-gray-50">
+            <div class="relative z-10 container mx-auto flex flex-col items-center">
+                <img src="https://res.cloudinary.com/dn2mgiges/image/upload/v1766959192/logo_eylxks.jpg" alt="Competition Logo" class="h-20 md:h-24 mx-auto mb-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-brand-navy mb-4 leading-tight">Love Evangelism & Transformation Competition</h1>
+                <p class="text-lg md:text-xl text-brand-slate mb-8 max-w-3xl mx-auto">Turn Love Into Action. Turn Vision Into Transformation.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                     <a href="https://forms.gle/WE4avdP6BShggq4JA" class="btn-cta">Apply for the Competition</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Image -->
+        <div class="px-6 -mt-16 md:-mt-24 relative z-10">
+            <div class="container mx-auto">
+                 <img src="https://res.cloudinary.com/dn2mgiges/image/upload/v1766962385/hero.819Z_ujtsmj.png" alt="Community project hero image" class="rounded-2xl shadow-2xl w-full h-auto object-cover border-4 border-white">
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section class="py-24 md:py-32 px-6">
+            <div class="container mx-auto text-center max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 section-heading">A Global Initiative for Kingdom Impact</h2>
+                <p class="text-brand-slate text-lg leading-relaxed">
+                    Since 2015, SUG and its partners have empowered communities through entrepreneurship and evangelism. Now, in partnership with Godly.id, we present the <strong>Love Evangelism & Transformation Competition</strong>. This initiative is designed to empower purpose-driven individuals to launch scalable projects that demonstrate God's love, win souls, and bring lasting change to communities in need. We exist to help you turn a simple idea into a real, impactful pilot project.
+                </p>
+            </div>
+        </section>
+
+        <!-- Bento Grid Section -->
+        <section class="pb-24 md:pb-32 px-6 bg-yellow-50/50">
+            <div class="container mx-auto max-w-6xl py-16">
+                 <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-heading">Our Core Objectives</h2>
+                 <div class="bento-grid">
+                    <div class="card p-6 rounded-xl grid-item-1">
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">Promote Practical Evangelism</h3>
+                        <p>Go beyond words by demonstrating God's love through tangible solutions that bring spiritual and social transformation.</p>
+                    </div>
+                    <div class="card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">Empower Entrepreneurs</h3>
+                        <p>Support innovators building projects aligned with Kingdom values.</p>
+                    </div>
+                    <div class="card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">Increase Education</h3>
+                        <p>Equip participants with practical knowledge to strengthen evangelism.</p>
+                    </div>
+                    <div class="card p-6 rounded-xl grid-item-4">
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">Grow Digital Engagement</h3>
+                        <p>Share inspiring stories of love, faith, and impact across digital platforms to inspire a global audience.</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Prizes Section -->
+        <section class="pb-24 md:pb-32 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-heading">Competition Prizes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 2nd Place -->
+                    <div class="card p-8 rounded-xl text-center mt-8 md:mt-16">
+                        <h3 class="text-2xl font-bold text-brand-slate mb-2">🥈 2nd Place</h3>
+                        <p class="text-4xl font-extrabold text-brand-navy my-4">$500</p>
+                        <ul class="text-left space-y-2 text-brand-slate">
+                            <li>✓ Free training playlist</li>
+                            <li>✓ Website, hosting & email</li>
+                            <li>✓ Project mentoring</li>
+                        </ul>
+                    </div>
+                     <!-- 1st Place -->
+                    <div class="card p-8 rounded-xl text-center border-t-4 border-brand-yellow order-first md:order-none transform md:scale-110">
+                        <h3 class="text-2xl font-bold text-brand-yellow mb-2">🥇 1st Place Winner</h3>
+                        <p class="text-5xl font-extrabold text-brand-navy my-4">$1,000</p>
+                        <ul class="text-left space-y-2 text-brand-slate">
+                            <li>✓ Free training playlist</li>
+                            <li>✓ Free website, hosting & email</li>
+                            <li>✓ Ongoing project mentoring</li>
+                        </ul>
+                    </div>
+                    <!-- 3rd Place -->
+                    <div class="card p-8 rounded-xl text-center mt-8 md:mt-16">
+                        <h3 class="text-2xl font-bold text-amber-600 mb-2">🥉 3rd Place</h3>
+                        <p class="text-4xl font-extrabold text-brand-navy my-4">$300</p>
+                        <ul class="text-left space-y-2 text-brand-slate">
+                           <li>✓ Free training playlist</li>
+                           <li>✓ Website, hosting & email</li>
+                           <li>✓ Project mentoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Should Apply & Timeline Section -->
+        <section class="pb-24 md:pb-32 px-6 bg-gray-50">
+            <div class="container mx-auto max-w-6xl py-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-12 section-heading">Who Should Apply?</h2>
+                        <div class="flex flex-wrap gap-4">
+                            <span class="bg-yellow-100 text-yellow-800 font-medium py-2 px-4 rounded-full">Entrepreneurs</span>
+                            <span class="bg-yellow-100 text-yellow-800 font-medium py-2 px-4 rounded-full">Sociopreneurs</span>
+                            <span class="bg-yellow-100 text-yellow-800 font-medium py-2 px-4 rounded-full">Missionaries</span>
+                             <span class="bg-yellow-100 text-yellow-800 font-medium py-2 px-4 rounded-full">Evangelists</span>
+                            <span class="bg-yellow-100 text-yellow-800 font-medium py-2 px-4 rounded-full">Street Pastors</span>
+                            <span class="bg-yellow-100 text-yellow-800 font-medium py-2 px-4 rounded-full">Community Leaders</span>
+                        </div>
+                         <p class="mt-8 text-lg text-brand-slate">If you live in the community you want to serve and have an idea that can create lasting impact, this competition is for you.</p>
+                    </div>
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-brand-navy text-center mb-6">Competition Timeline</h3>
+                        <div class="relative border-l-2 border-brand-yellow/50 pl-8 space-y-12">
+                            <!-- Step 1 -->
+                            <div class="relative">
+                                <div class="absolute -left-11 top-1 w-6 h-6 bg-brand-yellow rounded-full ring-8 ring-white"></div>
+                                <p class="font-bold text-brand-yellow">Competition Opens</p>
+                                <p class="text-2xl font-bold text-brand-navy">31st December 2025</p>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="relative">
+                               <div class="absolute -left-11 top-1 w-6 h-6 bg-brand-yellow rounded-full ring-8 ring-white"></div>
+                               <p class="font-bold text-brand-yellow">Competition Closes</p>
+                               <p class="text-2xl font-bold text-brand-navy">31st January 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="pb-24 md:pb-32 px-6">
+            <div class="container mx-auto max-w-4xl text-center bg-brand-navy text-white p-10 md:p-16 rounded-2xl">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Ready to Show Love and Create Impact?</h2>
+                <p class="text-brand-light-slate max-w-2xl mx-auto mb-8 text-lg">If you believe God has placed an idea in your heart to transform your community, this is your opportunity. Apply now and turn love into action.</p>
+                <a href="https://forms.gle/WE4avdP6BShggq4JA" class="btn-cta">Apply for the Competition</a>
+            </div>
+        </section>
+        
+        <!-- Partners Section -->
+        <section class="pb-24 md:pb-32 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-2xl font-bold text-center text-brand-slate mb-8">Partners & Supporters</h2>
+                <div class="flex justify-center items-center flex-wrap gap-8 md:gap-12 grayscale opacity-60">
+                    <img src="https://res.cloudinary.com/dn2mgiges/image/upload/v1766960638/startup_glory_1_qz1zlg.jpg" alt="SUG Logo" class="h-12 md:h-16 transition-all hover:grayscale-0 hover:opacity-100">
+                    <img src="https://res.cloudinary.com/dn2mgiges/image/upload/v1766959192/logo_eylxks.jpg" alt="Godly.id Logo" class="h-12 md:h-16 transition-all hover:grayscale-0 hover:opacity-100">
+                    <img src="https://res.cloudinary.com/dn2mgiges/image/upload/v1766960638/startup_glory_2_zc0igc.jpg" alt="Partner Logo 2" class="h-12 md:h-16 transition-all hover:grayscale-0 hover:opacity-100">
+                    <img src="https://res.cloudinary.com/dn2mgiges/image/upload/v1766960638/startup_glory_3_rw8axf.jpg" alt="Partner Logo 3" class="h-12 md:h-16 transition-all hover:grayscale-0 hover:opacity-100">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-200 py-8 text-center text-brand-slate">
+        <p>© Love Evangelism & Transformation Competition</p>
+        <p class="text-sm">Powered by Godly.id in partnership with SUG & Global Partners</p>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

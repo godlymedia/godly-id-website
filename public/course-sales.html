@@ -1,0 +1,180 @@
+'''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Courses | Godly Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+        :root {
+            --navy-deep: #020617;
+            --yellow-accent: #FFD100;
+            --slate-neutral: #94a3b8;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--navy-deep);
+            color: white;
+        }
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .cta-primary {
+            background-color: var(--yellow-accent);
+            color: var(--navy-deep);
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 209, 0, 0.2);
+        }
+        h1, h2, h3, h4 {
+            letter-spacing: -0.02em;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Hero Header -->
+        <header class="text-center py-16 md:py-24">
+            <img src="https://res.cloudinary.com/dn2mgiges/image/upload/v1766959192/logo_eylxks.jpg" alt="Godly Platform Logo" class="h-16 mx-auto mb-6">
+            <h1 class="text-xs tracking-widest text-slate-400 uppercase">Premium Kingdom Education</h1>
+            <h2 class="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold max-w-4xl mx-auto">
+                Grow, Lead, and Transform— One Course at a Time
+            </h2>
+            <p class="mt-6 text-lg text-slate-300 max-w-3xl mx-auto">
+                Discover Bible-based, purpose-driven courses designed to deepen your faith, sharpen your mind, strengthen your character, and empower your life’s assignment. Whether you’re called to ministry, leadership, business, or personal development, these courses will help you build with wisdom, clarity, and kingdom understanding.
+            </p>
+             <p class="mt-4 text-base text-slate-400 max-w-3xl mx-auto">
+                → Explore the programs below and choose the one that aligns with your current journey.
+            </p>
+            <div class="mt-10">
+                <a href="https://www.godly.id/login" class="cta-primary rounded-lg px-10 py-4 text-lg">
+                    Explore Courses & Enroll
+                </a>
+            </div>
+        </header>
+
+        <!-- Bento Grid -->
+        <main class="py-16">
+             <div class="text-center mb-12">
+                <p class="text-base text-slate-500">Secure Enrollment Platform</p>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-2">Featured Courses</h2>
+                <p class="text-slate-400 mt-2">Curated pathways for spiritual maturity and practical mastery.</p>
+            </div>
+
+            <div class="grid grid-cols-12 gap-4 md:gap-6">
+
+                <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-4 p-6 flex flex-col">
+                    <h3 class="text-xl font-bold">1️⃣ 21st Century Evangelism</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">Learn how to communicate the Gospel with relevance, clarity, and conviction in today’s fast-changing world.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+
+                <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-4 p-6 flex flex-col">
+                    <h3 class="text-xl font-bold">2️⃣ Understanding Discipleship Basics</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">Go beyond church attendance and discover what it truly means to follow Christ and build a foundation for life.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+
+                <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-4 p-6 flex flex-col">
+                    <h3 class="text-xl font-bold">3️⃣ Come Start Something</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">A practical, faith-rooted business foundation course designed to help you launch ideas with kingdom purpose.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+                
+                 <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-4 p-6 flex flex-col">
+                    <h3 class="text-xl font-bold">4️⃣ Biblical Entrepreneurship</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">Build and grow a business God’s way, integrating biblical principles with modern marketplace strategies.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+
+                 <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-4 p-6 flex flex-col">
+                    <h3 class="text-xl font-bold">5️⃣ Mastering Mental Wisdom</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">Strengthen your thinking, upgrade your mindset, and align your thoughts with divine wisdom for better decision making.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+
+                 <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-4 p-6 flex flex-col">
+                    <h3 class="text-xl font-bold">6️⃣ Mastering Success Triggers</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">Discover the internal and external principles that trigger sustainable success and godly prosperity in your life.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+                 <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-4 p-6 flex flex-col">
+                    <h3 class="text-xl font-bold">7️⃣ Mastering The Finisher’s Formula</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">Learn how to move from intentions to completion, overcoming procrastination and finishing what you start.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+
+                <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-8 p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold">👑 Maturing The Saints: Kingdom Mysteries I</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">This course enhances the maturing of the saints through exploring a portfolio of kingdom mystery teachings of Apostle Joshua Selman. Topics include: The Value & Supremacy of the Word, The Power of Prayer, The Power of Vision, Mission & Destiny, and more.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+
+                 <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-6 p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold">👑 Maturing The Saints: Kingdom Mysteries II</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">Explore detailed kingdom mystery teachings including: The Power of Value and productivity, The Power Of Mentorship, Managing Crisis and Challenges, Understanding Times & Seasons, and more.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+
+                 <a href="https://www.godly.id/login" class="glass-card rounded-xl col-span-12 md:col-span-6 p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold">👑 Maturing The Saints: Kingdom Mysteries III</h3>
+                    <p class="mt-2 text-slate-300 flex-grow">Teachings include: The Power of Praise & Thanksgiving, The Power of Strategic Relationship, Kingdom Service, The Value of Godly Impartation, The Prophetic Advantage, The Law of Love, and more.</p>
+                    <span class="mt-4 text-yellow-400 font-semibold self-start">Learn More / Enroll &rarr;</span>
+                </a>
+            </div>
+        </main>
+
+        <!-- Final CTA -->
+        <section class="py-24 text-center">
+             <h2 class="text-3xl sm:text-4xl font-bold">Your Next Level Begins Here</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-slate-300">
+               Every course is intentionally designed to equip, transform, and empower you for purpose, leadership, impact, and kingdom relevance. Choose a program, start your journey, and take the next step toward growth and mastery.
+            </p>
+            <div class="mt-8">
+                <a href="https://www.godly.id/login" class="cta-primary rounded-lg px-10 py-4 text-lg">
+                    View Course Details & Enroll
+                </a>
+            </div>
+        </section>
+
+        <!-- Values Row / Footer -->
+        <footer class="py-16 border-t border-slate-800">
+            <div class="grid grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <h4 class="mt-2 text-lg font-semibold">EQUIP</h4>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h4 class="mt-2 text-lg font-semibold">TRANSFORM</h4>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h4 class="mt-2 text-lg font-semibold">EMPOWER</h4>
+                </div>
+            </div>
+            <div class="mt-12 text-center text-sm text-slate-500">
+                 <p>&copy; 2025 Godly Platform. All rights reserved. Building for the Kingdom.</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+'''
