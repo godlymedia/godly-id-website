@@ -377,6 +377,86 @@ function resetForm() {
     addLessonField();
 }
 
+const modulesContainer = document.getElementById('modules-container');
+const addModuleBtn = document.getElementById('add-module-btn');
+
+// --- 1. Add a New Module ---
+addModuleBtn.addEventListener('click', () => {
+    const moduleId = 'mod_' + Date.now(); // Unique ID for the module
+    const moduleHTML = `
+        <div class="module-card bg-gray-50 border border-gray-200 rounded-lg p-5" id="${moduleId}">
+            <div class="flex items-center justify-between mb-4 gap-4">
+                <div class="flex-grow">
+                    <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Module Title</label>
+                    <input type="text" placeholder="e.g. Introduction to Faith" 
+                        class="module-title-input w-full bg-transparent border-b border-gray-300 focus:border-brand-yellow outline-none py-1 font-bold text-lg">
+                </div>
+                <button type="button" onclick="removeElement('${moduleId}')" class="text-red-400 hover:text-red-600 text-sm">Delete Module</button>
+            </div>
+
+            <div class="lessons-list space-y-3 mb-4" id="lessons-container-${moduleId}">
+                </div>
+
+            <button type="button" onclick="addLessonToModule('${moduleId}')" 
+                class="flex items-center gap-2 text-sm font-bold text-brand-dark hover:text-brand-yellow transition">
+                <span class="bg-brand-dark text-white rounded-full w-5 h-5 flex items-center justify-center">+</span>
+                Add Lesson
+            </button>
+        </div>
+    `;
+    modulesContainer.insertAdjacentHTML('beforeend', moduleHTML);
+});
+
+// --- 2. Add a Lesson to a Specific Module ---
+window.addLessonToModule = function(moduleId) {
+    const lessonsContainer = document.getElementById(`lessons-container-${moduleId}`);
+    const lessonId = 'les_' + Date.now();
+    
+    const lessonHTML = `
+        <div class="lesson-row flex items-center gap-3 bg-white p-3 rounded shadow-sm border border-gray-100" id="${lessonId}">
+            <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-3">
+                <input type="text" placeholder="Lesson Title" class="lesson-title px-2 py-1 text-sm border-b focus:outline-none focus:border-brand-yellow">
+                <input type="text" placeholder="Video URL (YouTube/Vimeo)" class="lesson-url px-2 py-1 text-sm border-b focus:outline-none focus:border-brand-yellow">
+            </div>
+            <button type="button" onclick="removeElement('${lessonId}')" class="text-gray-300 hover:text-red-500 text-xl">&times;</button>
+        </div>
+    `;
+    lessonsContainer.insertAdjacentHTML('beforeend', lessonHTML);
+};
+
+// --- 3. Helper to remove modules or lessons ---
+window.removeElement = function(id) {
+    if(confirm("Are you sure you want to remove this?")) {
+        document.getElementById(id).remove();
+    }
+};
+
+const courseData = {
+    title: document.getElementById('course-title').value,
+    modules: []
+};
+
+// Loop through each module card
+document.querySelectorAll('.module-card').forEach(moduleEl => {
+    const moduleTitle = moduleEl.querySelector('.module-title-input').value;
+    const lessons = [];
+
+    // Loop through lessons inside THIS module
+    moduleEl.querySelectorAll('.lesson-row').forEach(lessonEl => {
+        lessons.push({
+            title: lessonEl.querySelector('.lesson-title').value,
+            url: lessonEl.querySelector('.lesson-url').value
+        });
+    });
+
+    courseData.modules.push({
+        title: moduleTitle,
+        lessons: lessons
+    });
+});
+
+console.log("Ready to send to Firebase:", courseData);
+
 // Logout Handler
 if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
