@@ -16,6 +16,60 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/admin",
+        "destination": "/admin.html"
+      },
+      {
+        "source": "/competition",
+        "destination": "/competition.html"
+      },
+      {
+        "source": "/course-sales",
+        "destination": "/course-sales.html"
+      },
+      {
+        "source": "/courses",
+        "destination": "/courses.html"
+      },
+      {
+        "source": "/lms",
+        "destination": "/lms.html"
+      },
+      {
+        "source": "/resources",
+        "destination": "/resources.html"
+      },
+      {
+        "source": "/my-account",
+        "destination": "/my-account.html"
+      },
+      {
+        "source": "/login",
+        "destination": "/login.html"
+      },
+      {
+        "source": "/prayer-wall",
+        "destination": "/prayer-wall.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/contact.html"
+      },
+      {
+        "source": "/admin-analysis",
+        "destination": "/admin-analysis.html"
+      },
+      {
+        "source": "/accept-jesus",
+        "destination": "/accept-jesus.html"
+      }
     ]
   }
 }

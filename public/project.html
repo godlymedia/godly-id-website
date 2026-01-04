@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Initiatives | Godly.id</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy: #111827;
+            --brand-slate: #475569;
+            --brand-yellow: #FFD100;
+            --brand-white: #FFFFFF;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--brand-white);
+            color: var(--brand-slate);
+        }
+        .btn-cta {
+            background-color: var(--brand-yellow);
+            color: var(--brand-navy);
+            font-weight: 700;
+            padding: 0.8rem 2.5rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 209, 0, 0.3);
+        }
+        /* Glass effect for project cards */
+        .project-card-content {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--brand-yellow);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50 border-b border-gray-100">
+      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html">
+          <img src="https://res.cloudinary.com/dn2mgiges/image/upload/v1766959192/logo_eylxks.jpg" alt="Logo" class="h-10 w-auto" />
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="hover:text-brand-yellow font-medium transition-colors">Home</a>
+          <a href="competition.html" class="hover:text-brand-yellow font-medium transition-colors">Competition</a>
+          <a href="projects.html" class="text-brand-yellow font-bold">Projects</a>
+          <a href="https://forms.gle/WE4avdP6BShggq4JA" class="btn-cta !py-2 !px-6 text-sm">Join Us</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <section class="bg-gray-50 py-20 px-6">
+            <div class="container mx-auto text-center max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy mb-6 relative inline-block section-heading">Projects & Initiatives</h1>
+                <p class="text-lg md:text-xl text-brand-slate mt-8">Impactful missions designed to share God's love through practical action, prayer, and community transformation.</p>
+            </div>
+        </section>
+
+        <section class="py-20 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <div class="group relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="assets/closeup-shot-male-wearing-bag-hilding-bible.jpg" alt="Hospice Care" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-6 rounded-2xl project-card-content text-white">
+                            <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest mb-2 block">United Kingdom</span>
+                            <h3 class="text-2xl font-bold mb-3">Hospice Evangelism</h3>
+                            <p class="text-sm text-gray-200 mb-6">Monthly outreach visits to hospices offering healing prayers, support, and the hope of Christ to patients on their end-of-life journey.</p>
+                            <a href="https://forms.gle/WE4avdP6BShggq4JA" class="btn-cta text-sm !px-6 !py-2 w-full text-center">Sign Up to Volunteer</a>
+                        </div>
+                    </div>
+
+                    <div class="group relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="assets/group-four-gorgeous-african-american-womans-wear-summer-hat-holding-hands-praying-green-grass-park.jpg" alt="Retreat" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-6 rounded-2xl project-card-content text-white">
+                            <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest mb-2 block">Bi-Annual Events</span>
+                            <h3 class="text-2xl font-bold mb-3">Prayer Retreats</h3>
+                            <p class="text-sm text-gray-200 mb-6">Sponsored periodic and end-of-year retreats for deep spiritual focus. Register to be notified of our next retreat dates.</p>
+                            <a href="https://forms.gle/WE4avdP6BShggq4JA" class="btn-cta text-sm !px-6 !py-2 w-full text-center">Indicate Interest</a>
+                        </div>
+                    </div>
+
+                    <div class="group relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?auto=format&fit=crop&q=80&w=1200" alt="Prayer Lockdown" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-6 rounded-2xl project-card-content text-white">
+                            <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest mb-2 block">Periodic Lockdown</span>
+                            <h3 class="text-2xl font-bold mb-3">Intercessor's Feast</h3>
+                            <p class="text-sm text-gray-200 mb-6">A 1-7 day intensive lockdown program where those passionate about intercession cry out to God for revival and transformation.</p>
+                            <a href="https://forms.gle/WE4avdP6BShggq4JA" class="btn-cta text-sm !px-6 !py-2 w-full text-center">Join the Intercessors</a>
+                        </div>
+                    </div>
+
+                    <div class="group relative h-[450px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1200" alt="Helping Hand" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-6 rounded-2xl project-card-content text-white">
+                            <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest mb-2 block leading-tight">Global: UK, Uganda, Kenya, Australia, USA, India, China, Nigeria</span>
+                            <h3 class="text-2xl font-bold mb-3">Sharing Love</h3>
+                            <p class="text-sm text-gray-200 mb-6">Practical acts of kindness to widows, orphans, clergy, and those in need. Sharing God's love through service.</p>
+                            <a href="https://forms.gle/WE4avdP6BShggq4JA" class="btn-cta text-sm !px-6 !py-2 w-full text-center">Partner with Us</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 px-6 bg-brand-navy text-white text-center">
+            <div class="container mx-auto max-w-2xl">
+                <h2 style="color: black;" class="text-3xl font-bold mb-6">Want to initiate a project?</h2>
+                <p class="text-gray-400 mb-8">If you have a vision for transformation in your local community, we want to hear from you.</p>
+                <a href="competition.html" class="btn-cta">Learn about the Competition</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t border-gray-100 text-center text-brand-slate text-sm">
+        <p>©️ Love Evangelism & Transformation Competition</p>
+        <p>Powered by Godly.id in partnership with SUG & Global Partners</p>
+    </footer>
+
+</body>
+</html>
