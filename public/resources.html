@@ -119,29 +119,27 @@
             </div>
 
             <!-- Content (Right) -->
-            <div>
-              <h2
-                class="text-4xl md:text-5xl font-serif font-bold text-brand-dark leading-tight"
-              >
-                Daily Devotion
-              </h2>
-              <h3 class="text-2xl font-serif font-bold text-gray-700 mt-8">
-                Today's Focus: [Title of Devotion]
-              </h3>
-              <p class="text-lg text-gray-700 mt-4">
-                [This area will display the "Read Today's Devotional" content.
-                It will be populated from the CMS once we connect it.]
-              </p>
-              <p class="text-md text-gray-500 italic mt-4">
-                Source: C.H. Spurgeon
-              </p>
-              <a
-                href="#"
-                class="mt-8 inline-block bg-brand-yellow text-brand-dark font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105"
-              >
-                Read Today's Devotional
-              </a>
-            </div>
+         <section id="devotion">
+  <div class="section-title">
+    <h2 style="font-size: 50px;" class="reveal">DAILY DEVOTIONAL</h2>
+  </div>
+  
+  <div class="item reveal" style="padding: 0; overflow: hidden; background: var(--panel); border: 1px solid var(--border); border-radius: 24px;">
+       <div class="iframe-container" style="position: relative; width: 100%; height: 400px; background: #fff; border-top: 1px solid var(--border);">
+      <iframe 
+        src="https://bethany.church/feeds/daily/devotion/iframe" 
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        title="Daily Devotion"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div style="padding: 2rem; background: var(--panel); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+       <p style="color: var(--text-dim); font-size: 0.9rem; font-style: italic;">Source: Bethany Church Feed</p>
+      
+    </div>
+  </div>
+</section>
           </div>
         </div>
       </section>
@@ -229,7 +227,7 @@
                 you go!
               </p>
               <a
-                href="#"
+                href="https://www.bible.com/app"
                 class="mt-4 inline-block bg-brand-yellow text-brand-dark font-bold px-8 py-3 rounded-full hover:bg-yellow-300 transition duration-300"
               >
                 Download Now
